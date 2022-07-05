@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "webpack",
     "build": "NODE_ENV=production webpack",
-    "server": "nodemon --watch server server/server.js open http://localhost:3000"
+    "server": "nodemon --watch server server/server.js"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",

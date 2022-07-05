@@ -23,21 +23,21 @@ module.exports = {
       hints : false
    },
    
-   optimization: {
-      mangleWasmImports: true,
-      minimize: true,
-      splitChunks:{
-         cacheGroups:{
-            vendor:{
-               name:'vendors',
-               test: /node_modules/,
-               chunks: 'all',
-               enforce: true,
-               filename: 'scripts/[name].[fullhash].js',
-            }
-         }
-      }
-   },
+   // optimization: {
+   //    mangleWasmImports: true,
+   //    minimize: true,
+   //    splitChunks:{
+   //       cacheGroups:{
+   //          vendor:{
+   //             name:'vendors',
+   //             test: /node_modules/,
+   //             chunks: 'all',
+   //             enforce: true,
+   //             filename: 'scripts/[name].[fullhash].js',
+   //          }
+   //       }
+   //    }
+   // },
 
    resolve:{
       extensions: ['.js', '.jsx', '.tsx', 'json'],

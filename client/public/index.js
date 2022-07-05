@@ -1,7 +1,7 @@
-import './../src/assets/styles/style.scss'
 require('webpack-hot-middleware/client?reload=true')
 require('./index.html')
+import React from 'react';
+import {render} from 'react-dom';
+import App from '../src/App';
 
-// import img from '../src/assets/images/img.jpg'
-
-console.log('it\'s work without loadesh');
+render( <App/>, document.getElementById('root'))
