@@ -1,42 +1,5 @@
 @tailwind base;
+@import '1-Fonts/fonts';
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-   font-family: 'texturina';
-   src: 
-     url('../fonts/texturina-Regular.woff') format('woff');
-   font-weight: 400;
-   font-style: normal;
-}
-
-body{
-  background-color: rgb(78, 117, 15);
-  display: flex;
-}
-
-@media screen and (max-width: 679px) {
-  body{
-    background-color: rgb(255, 165, 81);
-  }
-}
-
-.hello {
-   background: url('../images/img.jpg');
-  //  @apply text-secondary w-[300px] h-[300px]; 
-}
- @media screen and (max-width: 679px) {
-    .hello{
-      color:aqua
-    }
- }
-
- 
-.hello_duble {
-  color: rgb(196, 42, 42);
-  /* background: url('../src/assets/images/img.jpg'); */
-  height: 500px;
-  font-family:texturina ;
-  border: 1px solid rgb(236, 0, 0);
-  text-align: center;
-}
