@@ -4,6 +4,7 @@ import { NavLink, useLocation} from 'react-router-dom';
 // import { RootState } from '../../../data/redux/store';
 // import { useSelector } from "react-redux";
 // import { translation } from '../../../data/locales/languages/languages';
+import { translation } from '../../../store/slice/lenguageSlice';
 
 //components
 import Navbar from './Navbar/Navbar';
@@ -54,8 +55,8 @@ const Header = () => {
                             <div className={location.pathname !== "/" ? "hidden": "max-w-116 w-full mx-[300px] stroke-secondary fill-secondary"}>
                                 <IconSvg name="emblem"/>
                             </div> 
-                            {/* translation('villegName', lang) */}
-                            <Button name={"ubyni"} href="#" className={`text-center block font-texturina text-secondary ${location.pathname !== "/" ? "text-lg": 'text-xl'}`}/>
+                            {/*  */}
+                            <Button name={translation('villegName')} href="#" className={`text-center block font-texturina text-secondary ${location.pathname !== "/" ? "text-lg": 'text-xl'}`}/>
                         </div>
                 </div>   
             </div>

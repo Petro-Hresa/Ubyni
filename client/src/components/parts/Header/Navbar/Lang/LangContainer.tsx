@@ -10,21 +10,26 @@ import { Lang } from "./Lang";
 // import { RootState } from "../../data/redux/store";
 // import { setLanguage } from '../../data/redux/slices/languageSlice';
 // import { translation } from "../../data/locales/languages/languages";
+import { setLang } from "../../../../../store/slice/lenguageSlice";
+// import {TLangState} from '../../../../../store/slice/lenguageSlice';
 
-import {TLangState} from '../../../../../store/slice/lenguageSlice'
-type TLang = {
-   lang: string
+// console.log(setLang);
+
+
+export type TLang = {
+   lang: string,
+   setLang: (value:string)=>void
 }
 
 
-const LangContainer = React.memo((props:TLangState) => {
+const LangContainer = (props:TLang) => {
 
    // const lang = useSelector((state: RootState) => state.languages.language)
-// console.log(props.lang);
+   // console.log(props.setLang);
 
    
    return (<Lang {...props}/>);
-})
+}
 
 const mapStateToProps = (state:RootState) =>{
    return{
@@ -32,4 +37,4 @@ const mapStateToProps = (state:RootState) =>{
    }
 }
 
-export default connect(mapStateToProps)(LangContainer)
+export default connect(mapStateToProps, {setLang})(LangContainer)
