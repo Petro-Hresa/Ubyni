@@ -16,12 +16,9 @@ export const Lang = React.memo((props:TLang) => {
    const box = useRef(null);
    const [isOpen, setIsOpen] = useState(false)
 
-   // console.log(props.lang);
-
    let imgLang: TImgLang = {
       "ua": Img.lang.ua,
       "en": Img.lang.en
-
    }
 
    return (
@@ -47,7 +44,7 @@ export const Lang = React.memo((props:TLang) => {
                }
 
             </ul>}
-               
+
          </div>
 
    );
