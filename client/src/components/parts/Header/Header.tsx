@@ -1,8 +1,7 @@
 import React, {FC, useRef, useEffect ,useState, useLayoutEffect} from 'react';
 import { NavLink, useLocation} from 'react-router-dom';
 // import { debounce } from '../../../App';
-// import { RootState } from '../../../data/redux/store';
-// import { useSelector } from "react-redux";
+
 // import { translation } from '../../../data/locales/languages/languages';
 import { translation } from '../../../store/slice/lenguageSlice';
 
@@ -39,7 +38,7 @@ const Header = () => {
 
 
  
-  // const lang = useSelector((state: RootState) => state.languages.language)
+  //
 
   return (
 
