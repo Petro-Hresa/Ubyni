@@ -2,8 +2,9 @@ import React, {FC, useRef, useEffect ,useState, useLayoutEffect} from 'react';
 import { NavLink, useLocation} from 'react-router-dom';
 // import { debounce } from '../../../App';
 
-// import { translation } from '../../../data/locales/languages/languages';
 import { translation } from '../../../store/slice/lenguageSlice';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store/store';
 
 //components
 import Navbar from './Navbar/Navbar';
@@ -14,6 +15,7 @@ import { Button } from '../../general/Button';
 
 const Header = () => {
 
+  const lang = useSelector((state:RootState)=> state.language.lang)
   // let location = useLocation();
   const headerRef = useRef(null);
 
@@ -55,7 +57,7 @@ const Header = () => {
                                 <IconSvg name="emblem"/>
                             </div> 
                             {/*  */}
-                            <Button name={translation('villegName')} href="#" className={`text-center block font-texturina text-secondary ${location.pathname !== "/" ? "text-lg": 'text-xl'}`}/>
+                            <Button name={translation('villegName', lang)} href="#" className={`text-center block font-texturina text-secondary ${location.pathname !== "/" ? "text-lg": 'text-xl'}`}/>
                         </div>
                 </div>   
             </div>
