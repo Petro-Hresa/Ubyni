@@ -8,6 +8,8 @@ const config = require('../webpack.config.js');
 const compiler = webpack(config);
 
 app
+.use('/api/registration', require('./routes/registrationRoute'))
+
 .use( WDM(compiler))
 
 .use( WHM(compiler, {

@@ -3,7 +3,7 @@
   "main": "index.js",
   "author": "Hresa",
   "private": true,
-  "modules": true,
+
   "scripts": {
     "dev": "webpack",
     "build": "NODE_ENV=production webpack",

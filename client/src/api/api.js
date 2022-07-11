@@ -5,7 +5,7 @@ const instaince = axios.create({
 })
 
 export const usersApi = {
-   setUsersRegistration:()=>{
-      return instaince.post('/registration')
+   setUserRegistration:()=>{
+      return instaince.post('/registration',{fullName, email, login,password,confirmPassword})
    }
 }
