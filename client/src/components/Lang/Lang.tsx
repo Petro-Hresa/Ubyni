@@ -1,5 +1,5 @@
 import React, { useRef, useState, useCallback, useEffect, FC } from "react";
-import {IconSvg, Img} from "../../../../general/Images";
+import {IconSvg, Img} from "../Images/Images";
 // import { useDispatch, useSelector } from "react-redux";
 // import { RootState } from "../../data/redux/store";
 // import { setLanguage } from '../../data/redux/slices/languageSlice';

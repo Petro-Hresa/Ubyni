@@ -1,16 +1,16 @@
 import React, { useRef, useState, useCallback, useEffect, FC } from "react";
 import { connect } from "react-redux";
-import {RootState} from '../../../../../store/store'
+import {RootState} from '../../store/store'
 
 
 
-import {IconSvg, Img} from "../../../../general/Images";
+import {IconSvg, Img} from "../Images/Images";
 import { Lang } from "./Lang";
 // import { useDispatch, useSelector } from "react-redux";
 // import { RootState } from "../../data/redux/store";
 // import { setLanguage } from '../../data/redux/slices/languageSlice';
 // import { translation } from "../../data/locales/languages/languages";
-import { setLang } from "../../../../../store/slice/lenguageSlice";
+import { setLang } from "../../store/slice/lenguageSlice";
 // import {TLangState} from '../../../../../store/slice/lenguageSlice';
 
 // console.log(setLang);

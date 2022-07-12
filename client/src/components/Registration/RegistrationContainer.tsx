@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { connect } from 'react-redux';
-import { RootState } from '../../../../../../store/store';
-import { setRegistration, postUser } from '../../../../../../store/slice/registrationSlice'
+import { RootState } from '../../store/store';
+import { setRegistration, postUser } from '../../store/slice/registrationSlice'
 
 
 //components

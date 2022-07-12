@@ -2,10 +2,10 @@ import React, {FC, useRef, useEffect ,useState, useLayoutEffect} from 'react';
 import { NavLink, useLocation} from 'react-router-dom';
 
 //components
-import { Hamburger } from './Hamburger';
-import { Nav } from './Nav';
-import { IconSvg } from '../../../general/Images';
-import LangContainer from './Lang/LangContainer';
+import { Hamburger } from '../Hamburger/Hamburger';
+import { Nav } from '../Nav/Nav';
+import { IconSvg } from '../Images/Images';
+import LangContainer from '../Lang/LangContainer';
 // type Navbar = {
 //    headerRef: {}
 // }

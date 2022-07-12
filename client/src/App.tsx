@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, NavLink , Routes, Route } from 'react-router-dom';
 //components
-import Header from "./components/parts/Header/Header";
-import RegistrationContainer from "./components/parts/Header/Navbar/Authorization/Registration/RegistrationContainer";
+import Header from "./components/Header/Header";
+import RegistrationContainer from "./components/Registration/RegistrationContainer";
 
 import './../src/assets/styles/style.scss'
 
@@ -12,7 +12,6 @@ const App = () => {
       <Header/>
         <Routes>
           <Route path="/registration" element={ <RegistrationContainer/> }/>
-
         </Routes>
       
    </BrowserRouter>

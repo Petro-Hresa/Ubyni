@@ -2,14 +2,14 @@ import React, {FC, useRef, useEffect ,useState, useLayoutEffect} from 'react';
 import { NavLink, useLocation} from 'react-router-dom';
 // import { debounce } from '../../../App';
 
-import { translation } from '../../../store/slice/lenguageSlice';
+import { translation } from '../../store/slice/lenguageSlice';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../store/store';
+import { RootState } from '../../store/store';
 
 //components
-import Navbar from './Navbar/Navbar';
-import { IconSvg } from '../../general/Images';
-import { Button } from '../../general/Button';
+import Navbar from '../Navbar/Navbar';
+import { IconSvg } from '../Images/Images';
+import { Button } from '../Button/Button';
 
 // import './Header.scss';
 
