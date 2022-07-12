@@ -9,14 +9,15 @@ import Registration from './Registration'
 
 export type TRegistrationContainer = {
     setRegistration: (dataForm:{})=>void,
-    postUser: ()=> any
+    postUser: (data:{})=> any,
+    user: any
 }
 // 
 
 const RegistrationContainer = (props:TRegistrationContainer) => {
-  // console.log(props);
+
   useEffect(()=>{
-    props.postUser()
+   
   })
   
   return (<Registration {...props} />)
@@ -25,7 +26,7 @@ const RegistrationContainer = (props:TRegistrationContainer) => {
 const mapStateToProps =(state:RootState)=> {
 
    return{
-
+    user: state.users.users
    }
 
 }

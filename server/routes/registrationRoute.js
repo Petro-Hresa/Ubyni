@@ -1,7 +1,6 @@
-const  expressRouter = require('express').Router()
+const  router = require('express').Router()
 
-
-expressRouter.post('/api/registration', (req ,res) =>{
+router.post('/registration', (req ,res) =>{
   console.log("Work",res.body); 
 })
 
@@ -9,4 +8,4 @@ expressRouter.post('/api/registration', (req ,res) =>{
 
 
 
-module.exports = expressRouter
+module.exports = router

@@ -11,6 +11,7 @@ app.use(express.json())
 
 app.use('/api/', require('./routes/usersRouter'))
 
+app.use('/api/', require('./routes/registrationRoute'))
 
 
 app

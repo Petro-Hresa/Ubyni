@@ -65,7 +65,7 @@ const RegistrationReduxForm =  reduxForm({
 const Registration = (props:TRegistrationContainer) => {
 
     const onSubmit = (formData:TRegistrationForm)=>{
-      props.setRegistration(formData)
+      props.postUser(formData)
     }
 
   return (
