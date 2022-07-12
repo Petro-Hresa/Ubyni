@@ -49,11 +49,11 @@ export const Img ={
     // map: require('../assets/images/map.jpg'),
     // church: require('../assets/images/church.jpg'),
 
-    // Users:{
-    //     "default-user": require('../assets/images/users/default-user.png'),
-    //     "user-01": require('../assets/images/users/user-01.jpg'),
-    //     "user-02": require('../assets/images/users/user-02.jpg'),
-    // }
+    Users:{
+        "default-user": require('../../assets/images/users/default-user.png'),
+        "user-01": require('../../assets/images/users/user-01.jpg'),
+        "user-02": require('../../assets/images/users/user-02.jpg'),
+    }
 
 }
 

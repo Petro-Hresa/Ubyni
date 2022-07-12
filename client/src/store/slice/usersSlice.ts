@@ -4,11 +4,8 @@ import { usersApi } from "../../api/api";
 export const getUsers = createAsyncThunk('users/getUsers',
 
  async (_,{dispatch})=>{
-
       await usersApi.getUsers().then(data =>{
          dispatch(setUsers(data))
-         console.log("data", data);
-         
       })
    }
 )
@@ -16,10 +13,16 @@ export const getUsers = createAsyncThunk('users/getUsers',
 
 const UsersSlice = createSlice({
    name: 'users',
-   initialState:[],
+   initialState:{
+      users:[]
+   },
    reducers:{
       setUsers:(state, action)=>{
-
+         return{
+            ...state,
+            users: action.payload
+         }
+        
       }
    },
    extraReducers:(builder)=>{
