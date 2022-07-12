@@ -6,15 +6,17 @@ const WHM = require("webpack-hot-middleware");
 const app = express();
 const config = require('../webpack.config.js');
 const compiler = webpack(config);
+app.use(express.json())
+
+
+app.use('/api/', require('./routes/usersRouter'))
+
+
 
 app
-.use('/api/registration', require('./routes/registrationRoute'))
-
 .use( WDM(compiler))
 
-.use( WHM(compiler, {
-   publicPath: config.output.publicPath,
-}))
+.use( WHM(compiler, {publicPath: config.output.publicPath,}))
 
 .use( express.static('../client/dist'))
 

@@ -33,7 +33,6 @@ const registrationSlice = createSlice({
       builder.addCase(postUser.fulfilled, (state, {payload})=> {
          state.formData = payload
          console.log("builder", payload);
-         
       })
      
    }

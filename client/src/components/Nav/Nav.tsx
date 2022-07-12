@@ -14,7 +14,7 @@ export const Nav:FC<typeNav> = ({className}:typeNav) => {
                 <li><Link className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" to='#'>News</Link></li>
                 <li><Link className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" to='#'>About</Link></li>
                 <li><Link className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" to='#'>Contacts</Link></li>
-                <li><Link className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" to='#'>Users</Link></li>
+                <li><Link className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" to='/users'>Users</Link></li>
                 <li><Link className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" to='#'>Profile</Link></li>
             </ul>
         </nav>

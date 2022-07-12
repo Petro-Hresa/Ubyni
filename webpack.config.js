@@ -40,7 +40,7 @@ module.exports = {
    // },
 
    resolve:{
-      extensions: ['.js', '.jsx', '.tsx', 'json'],
+      extensions: ['.js', '.jsx', '.tsx', '.ts', '.json'],
    },
 
    devtool: "source-map",

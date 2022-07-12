@@ -1,12 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { reducer as formReducer } from 'redux-form';
-import LanguageReducer from '../store/slice/lenguageSlice'
-import RegistrationReducer from '../store/slice/registrationSlice'
+import LanguageReducer from './slice/lenguageSlice'
+import RegistrationReducer from './slice/registrationSlice'
+import UsersReducer from './slice/usersSlice'
+
 
 export const store = configureStore({
    reducer:{
       language: LanguageReducer,
       registration: RegistrationReducer,
+      users: UsersReducer,
       form: formReducer
    }
 })
