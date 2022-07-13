@@ -7,11 +7,8 @@ import axios from "axios";
 export const postUser = createAsyncThunk(
    'registration/postUser',
    async (userData, {rejectWithValue, dispatch, getState})=>{
-      await axios.post('http://localhost:3000/api/registration', userData)
-      .then(res =>{
-         dispatch(setRegistration(res.data))
-         console.log(userData);
-      })
+      
+      await usersApi.setUserRegistration(userData)
    }
 )
 
@@ -25,22 +22,22 @@ const registrationSlice = createSlice({
       formData:{}
    } as TRegistration,
    reducers:{
-      setRegistration:(state, action)=>{
-         return{
-            ...state,
-            formData: action.payload
-         }
-      }
+      // setRegistration:(state, action)=>{
+      //    return{
+      //       ...state,
+      //       formData: action.payload
+      //    }
+      // }
    },
    extraReducers:(builder)=>{
       builder.addCase(postUser.fulfilled, (state, {payload})=> {
-         state.formData = payload
-         console.log("builder",payload);
+         // state.formData = payload
+         // console.log("builder",payload);
          
       })
      
    }
 })
 
-export const {setRegistration} = registrationSlice.actions;
+export const {} = registrationSlice.actions;
 export default registrationSlice.reducer

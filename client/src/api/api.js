@@ -1,15 +1,15 @@
 import axios from "axios";
 
 const instaince = axios.create({
-   baseURL: "http://localhost:3000/api"
+   baseURL: "http://localhost:3000"
 })
 
 export const usersApi = {
-   setUserRegistration:()=>{
-      return instaince.post('/registration',{fullName, email, login, password, confirmPassword})
+   setUserRegistration:(userData)=>{
+      return instaince.post('auth/registration', userData)
    },
 
    getUsers: ()=>{
-      return instaince.get('/users').then(request => request.data)
+      return instaince.get('/api/users').then(request => request.data)
    }
 }

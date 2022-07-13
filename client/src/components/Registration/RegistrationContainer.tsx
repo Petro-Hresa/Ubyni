@@ -1,18 +1,17 @@
 import React, {useEffect} from 'react'
 import { connect } from 'react-redux';
 import { RootState } from '../../store/store';
-import { setRegistration, postUser } from '../../store/slice/registrationSlice'
+import { postUser } from '../../store/slice/registrationSlice'
 
 
 //components
 import Registration from './Registration'
 
 export type TRegistrationContainer = {
-    setRegistration: (dataForm:{})=>void,
     postUser: (data:{})=> any,
     user: any
 }
-// 
+ 
 
 const RegistrationContainer = (props:TRegistrationContainer) => {
 
@@ -31,4 +30,4 @@ const mapStateToProps =(state:RootState)=> {
 
 }
 
-export default connect(mapStateToProps, {setRegistration,postUser})(RegistrationContainer)
+export default connect(mapStateToProps, {postUser})(RegistrationContainer)
