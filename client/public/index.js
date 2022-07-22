@@ -1,4 +1,4 @@
-require('webpack-hot-middleware/client?reload=true')
+
 import React from 'react';
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux';

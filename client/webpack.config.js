@@ -3,16 +3,16 @@ const webpack = require('webpack');
 const HWP = require('html-webpack-plugin');
 const MCEP = require('mini-css-extract-plugin');
 
-
 module.exports = {
    mode : ( process.env.NODE_ENV === 'production') ? 'production' : 'development',
-   entry: ['./client/public/'],
+   cache: true,
+   entry: ['./public/'],
    devtool: 'inline-source-map',
    plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new HWP({
          filename: 'index.html',
-         template: './client/public/index.html',
+         template: './public/index.html',
          inject: 'body',
       }),
       new MCEP({filename: 'styles/style.css'})
@@ -22,8 +22,9 @@ module.exports = {
    performance : {
       hints : false
    },
-   
-   // optimization: {
+
+   // optimization:{
+   //    nodeEnv: 'development',
    //    mangleWasmImports: true,
    //    minimize: true,
    //    splitChunks:{
@@ -38,6 +39,8 @@ module.exports = {
    //       }
    //    }
    // },
+   
+ 
 
    resolve:{
       extensions: ['.js', '.jsx', '.tsx', '.ts', '.json'],
@@ -48,10 +51,20 @@ module.exports = {
    output: {
       filename:  'scripts/index.[fullhash].js',
       assetModuleFilename: 'images/[hash][ext][query]',
-      path: path.resolve(__dirname, 'client/dist/'),
+      path: path.resolve(__dirname, 'dist/'),
       clean: true,
       publicPath: '/',
    },
+
+   devServer: {
+      static: {directory: path.join(__dirname, './dist')},
+      compress: true,
+      port: 3001,
+      open: true,
+      hot: true,
+      historyApiFallback: true,
+   },
+
 
    module:{
       rules:[

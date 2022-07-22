@@ -1,7 +1,7 @@
 module.exports = {
   content: [
-    './client/src/**/*.{js,ts,jsx,tsx,scss}',
-    './client/public/*.{js,ts,jsx,tsx,html}',
+    './src/**/*.{js,ts,jsx,tsx,scss}',
+    './public/*.{js,ts,jsx,tsx,html}',
 
   ],
   

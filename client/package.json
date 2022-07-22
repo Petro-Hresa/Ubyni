@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack",
     "build": "NODE_ENV=production webpack",
-    "server": "nodemon --watch server server/server.js"
+    "start": "webpack serve",
+    "watch": "webpack --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
@@ -35,8 +36,7 @@
     "typescript": "^4.7.4",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-middleware": "^5.3.3",
-    "webpack-hot-middleware": "^2.25.1"
+    "webpack-dev-server": "^4.9.3"
   },
   "browserslist": [
     "last 2 version",
@@ -46,13 +46,12 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "axios": "^0.27.2",
-    "express": "^4.18.1",
-    "mysql2": "^2.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-slick": "^0.29.0",
     "redux-form": "^8.3.8"
+
   }
 }
