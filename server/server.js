@@ -1,12 +1,22 @@
-// CommonJs
-const fastify = require('fastify')({
+import Fastify from 'fastify'
+import mysql from 'mysql2'
+
+const app = Fastify({
   logger: true
 })
 
+const connect = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'ubyni'
+})
+
+
 const start = async () => {
-  await fastify.listen({ port: 3000 }, function (err, address) {
+  await app.listen({ port: 3000 }, function (err, address) {
     if (err) {
-      fastify.log.error(err)
+      app.log.error(err)
       process.exit(1)
     }
     // Server is now listening on ${address}
@@ -14,9 +24,16 @@ const start = async () => {
 }
 start()
 
+
+
 // // Declare a route
-fastify.get('/', function (request, reply) {
-  reply.send({ hello: 'HP' })
+app.get('/', function (request, reply) {
+  connect.query('SELECT * FROM users', (err, results, fileds)=>{
+    reply.send({ hello: results })
+  }
+
+  )
+  
 })
 
 // Run the server!

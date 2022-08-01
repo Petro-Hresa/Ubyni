@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "Ubyni",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "nodemon fastify start server.js"
   },
   "author": "Hresa",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^4.3.0"
+    "fastify": "^4.3.0",
+    "mysql2": "^2.3.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
