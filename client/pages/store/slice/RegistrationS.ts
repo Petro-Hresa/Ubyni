@@ -2,21 +2,23 @@ import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
 import { usersApi } from "../../api/api";
 import { TRegistrationForm } from "../../components/Registration/Registration";
 
-import axios from "axios";
+type TUserData = {
+   
+}
 
 export const postUser = createAsyncThunk(
    'registration/postUser',
    async (userData, {rejectWithValue, dispatch, getState})=>{
       
-      await usersApi.setUserRegistration(userData)
+      await usersApi.SUserRegistration(userData)
    }
-)
+);
 
 type TRegistration = {
-   formData: any
-}
+   formData: string
+};
 
-const registrationSlice = createSlice({
+const registration = createSlice({
    name: 'registration',
    initialState:{
       formData:{}
@@ -37,8 +39,8 @@ const registrationSlice = createSlice({
       })
      
    }
-})
+});
 
-export const {} = registrationSlice.actions;
-export default registrationSlice.reducer
+export const {} = registration.actions;
+export default registration.reducer;
  

@@ -1,8 +1,8 @@
 import React, {FC} from 'react'
-import { Link } from 'react-router-dom'
-import { reduxForm, Field, InjectedFormProps } from 'redux-form'
+// import { Link } from 'react-router-dom'
+// import { reduxForm, Field, InjectedFormProps } from 'redux-form'
 import { useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
+// import { RootState } from '../../store/store'
 import { TRegistrationContainer } from './RegistrationContainer'
 //components
 import { Button } from '../Button/Button'

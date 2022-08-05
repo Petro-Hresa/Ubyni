@@ -10,7 +10,7 @@ import { Lang } from "./Lang";
 // import { RootState } from "../../data/redux/store";
 // import { setLanguage } from '../../data/redux/slices/languageSlice';
 // import { translation } from "../../data/locales/languages/languages";
-import { setLang } from "../../store/slice/lenguageSlice";
+import { setLang } from "../../store/slice/lenguageS";
 // import {TLangState} from '../../../../../store/slice/lenguageSlice';
 
 // console.log(setLang);

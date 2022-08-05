@@ -1,21 +1,21 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { reducer as formReducer } from 'redux-form';
-import LanguageReducer from './slice/lenguageSlice'
-import RegistrationReducer from './slice/registrationSlice'
-import UsersReducer from './slice/usersSlice'
-import LoginReducer from './slice/loginSlice'
+import { configureStore } from '@reduxjs/toolkit';
+// import { reducer as formReducer } from 'redux-form';
+import LanguageR from './slice/lenguageS';
+import RegistrationR from './slice/RegistrationS';
+// import UsersReducer from './slice/usersSlice';
+// import LoginReducer from './slice/loginSlice';
 
 
 export const store = configureStore({
    reducer:{
-      language: LanguageReducer,
-      registration: RegistrationReducer,
-      login: LoginReducer,
-      users: UsersReducer,
-      form: formReducer
+      language: LanguageR,
+      registration: RegistrationR,
+      // login: LoginReducer,
+      // users: UsersReducer,
+      // form: formReducer
    }
-})
+});
 
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type TRootState = ReturnType<typeof store.getState>;
+export type TAppDispatch = typeof store.dispatch;
