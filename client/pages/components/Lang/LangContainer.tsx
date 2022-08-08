@@ -1,16 +1,16 @@
 import React, { useRef, useState, useCallback, useEffect, FC } from "react";
 import { connect } from "react-redux";
-import {RootState} from '../../store/store'
+import {TRootState} from '../../store'
 
 
 
-import {IconSvg, Img} from "../Images/Images";
-import { Lang } from "./Lang";
+import {IconSvg, Img} from "../Images";
+import { Lang } from ".";
 // import { useDispatch, useSelector } from "react-redux";
 // import { RootState } from "../../data/redux/store";
 // import { setLanguage } from '../../data/redux/slices/languageSlice';
 // import { translation } from "../../data/locales/languages/languages";
-import { setLang } from "../../store/slice/lenguageS";
+import { setLang } from "../../store/slice/lenguage.s";
 // import {TLangState} from '../../../../../store/slice/lenguageSlice';
 
 // console.log(setLang);
@@ -21,8 +21,8 @@ export type TLang = {
    setLang: (value:string)=>void
 }
 
-
-const LangContainer = (props:TLang) => {
+// Lang Container
+const LangC = (props:TLang) => {
 
    // const lang = useSelector((state: RootState) => state.languages.language)
    // console.log(props.setLang);
@@ -31,10 +31,10 @@ const LangContainer = (props:TLang) => {
    return (<Lang {...props}/>);
 }
 
-const mapStateToProps = (state:RootState) =>{
+const mapStateToProps = (state:TRootState) =>{
    return{
-      lang: state.language.lang
+      lang: state.lang.lang
    }
 }
 
-export default connect(mapStateToProps, {setLang})(LangContainer)
+export default connect(mapStateToProps, {setLang})(LangC)

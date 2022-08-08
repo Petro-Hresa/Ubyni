@@ -6,6 +6,7 @@ export const Header = () => {
     <header className='bg-primary'>
       <div className="container">
          {/* <Navbar/> */}
+         Header
       </div>
     </header>
   )

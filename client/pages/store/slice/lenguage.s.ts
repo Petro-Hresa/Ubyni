@@ -23,7 +23,7 @@ export type TLang = {
    lang: string
 };
 
-const LanguageS = createSlice({
+const Lang = createSlice({
    name: 'lang',
    initialState: { lang: 'ua' }as TLang,
    reducers:{
@@ -35,8 +35,8 @@ const LanguageS = createSlice({
 });
 
 
-export let {setLang} = LanguageS.actions;
-export default LanguageS.reducer;
+export const {setLang} = Lang.actions;
+export default Lang.reducer;
 
 
 
