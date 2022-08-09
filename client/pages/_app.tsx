@@ -3,8 +3,8 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Provider } from 'react-redux'
 
-import { Header } from './components/Header'
-import { store } from './store'
+import  Header  from './components/Header'
+import {store}  from './store'
 import '../styles/index.scss'
 
 function App({ Component, pageProps }: AppProps) {
@@ -25,5 +25,5 @@ function App({ Component, pageProps }: AppProps) {
 
   </>
 }
-  
+App.displayName = "App";
 export default App
