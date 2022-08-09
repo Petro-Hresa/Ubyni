@@ -1,13 +1,12 @@
-import React from 'react'
-// import Navbar from '../Navbar/Navbar'
+import React from 'react';
+import Navbar from '../Navbar';
 
-export const Header = () => {
+export default () => {
   return (
     <header className='bg-primary'>
       <div className="container">
-         {/* <Navbar/> */}
-         Header
+         <Navbar/>
       </div>
     </header>
   )
-}
+};

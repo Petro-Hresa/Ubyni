@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-type TProps ={
+import ua from '../../../public/images/LangUa.png';
+import en from '../../../public/images/LangEn.png';
+
+type TSvg ={
     name: string;
 }
 
-export const IconSvg = (props : TProps) => {
+export const Svg = (props : TSvg) => {
         let icons  = {
             emblem: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 663 1092.6" fill="current" stroke="current">
                         <path d="M443.2,88.9c-15.6,15.8-30.5,45.3-35.6,70.1-3.3,16.1-3.9,26-3.3,53.5.9,39.5,5.1,162.3,8.8,259,2.9,76.2-4.6,138-22.8,188.5-6.9,19-12.6,30.4-18.6,37.4-15.8,18.1-32.3,43.1-43.5,65.8-19.6,39.9-29.9,81.8-31.8,129.4l-.7,16.4,29.4-.2,29.4-.3.6-15c.8-17,5.4-48.8,9.8-67A251.25,251.25,0,0,1,407.6,735c8.4-11.2,29.8-33.3,37.7-38.8l4.8-3.4,11.6,11.4c37.7,37,64,83.1,74.7,130.9,3.5,15.9,7.6,46,8.3,61.2l.6,12.7,29.1-.2,29.1-.3-.3-13a312.15,312.15,0,0,0-23.6-113c-11.6-27.9-32-61-51.5-83.4-3-3.5-6.3-8.5-7.3-11s-3.5-9-5.7-14.4c-12.8-31.1-22.3-70.2-26.5-109.7-3.9-36.1-4.4-65.8-2.1-121.5.8-19.8,2.4-63.7,3.5-97.5s2.7-81.7,3.6-106.4c1.7-48.7,1.2-61-2.7-79.5-5.7-26.2-19-52.6-35-69.5l-6.6-6.9Z" transform="translate(-118.5 -81.98)"/>
@@ -29,35 +32,34 @@ export const IconSvg = (props : TProps) => {
 
   )
 
-}
+};
 
-export const Img ={
-    lang:{
-        ua: require('../../../public/images/LangUa.png'),
-        en: require('../../../public/images/LangEn.png'),
-    },
+export default {
+    lang:{ua, en},
   
-    news: {
-        news1: require('../../../public/images/News1.jpg'),
-        news2: require('../../../public/images/News2.jpg'),
-        news3: require('../../../public/images/News3.jpg'),
-        news4: require('../../../public/images/News4.jpg'),
-        news5: require('../../../public/images/News5.jpg'),
-        news6: require('../../../public/images/map.jpg'),
-    },
+    // news: {
+    //     news1: require('../../../public/images/News1.jpg'),
+    //     news2: require('../../../public/images/News2.jpg'),
+    //     news3: require('../../../public/images/News3.jpg'),
+    //     news4: require('../../../public/images/News4.jpg'),
+    //     news5: require('../../../public/images/News5.jpg'),
+    //     news6: require('../../../public/images/map.jpg'),
+    // },
 
     // map: require('../assets/images/map.jpg'),
     // church: require('../assets/images/church.jpg'),
 
-    Users:{
-        "default-user": require('../../../public/images/users/default-user.png'),
-        "user-01": require('../../../public/images/users/user-01.jpg'),
-        "user-02": require('../../../public/images/users/user-02.jpg'),
-    }
+    // Users:{
+    //     "default-user": require('../../../public/images/users/default-user.png'),
+    //     "user-01": require('../../../public/images/users/user-01.jpg'),
+    //     "user-02": require('../../../public/images/users/user-02.jpg'),
+    // }
 
-}
+};
 
 
-export const gif = {
-    preloader: require('../../../public/images/spinner.gif'),
-}
+ 
+
+// export const gif = {
+//     preloader: require('../../../public/images/spinner.gif'),
+// }

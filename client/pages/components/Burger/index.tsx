@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+
 type TBurger = {
     onClick : () => void
 }
-export const Hamburger =() => {
+
+const Burger =() => {
 
     return (
 
@@ -13,5 +15,7 @@ export const Hamburger =() => {
         </div> 
 
     );
+
 }
 
+export default Burger;
