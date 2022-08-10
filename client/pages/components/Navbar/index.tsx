@@ -1,5 +1,6 @@
 import React, {FC, useRef, useEffect ,useState, useLayoutEffect} from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 // import { NavLink, useLocation} from 'react-router-dom';
 
 //components
@@ -7,6 +8,9 @@ import Lang from '../Lang';
 import { Button } from '../Button';
 import Burger from '../Burger';
 import { Nav } from '../Nav';
+import Img from '../Images';
+
+
 // import { Hamburger } from '../Hamburger/Hamburger';
 // import { Nav } from '../Nav/Nav';
 // import { Svg } from '../Images/Images';
@@ -42,7 +46,7 @@ const Navbar = () => {
 
    <div className="block-fixed w-full z-20 left-0 top-0 bg-primary">
       
-      <div className="container flex justify-between items-center relative py-30">
+      <div className="flex justify-between items-center relative py-30 mobile-md:py-15">
 
          <div className="flex">
             <Burger/>
@@ -55,21 +59,30 @@ const Navbar = () => {
              {/* <Svg name="emblem"/> */}
          </div>
 
-         <div className="flex space-x-30 items-center">
-            <Lang/>
+         <div className="flex space-x-30 items-center mobile-md:relative">
+            
+            <div className="flex mobile-md:flex-col-reverse md:space-x-30 mobile-md:absolute top-[calc(100%)] bg-primary -right-30 mobile-md:p-30 rounded-bl-md mobile-md:-z-[1]">    
+               
+               <Lang/>
 
-            <Link href={'/registration'}>
-               <Button name='Registration' 
-               href='#' 
-               className={"text-sm-xx md:text-md leading-12 text-shadow text-secondary"}/>
-            </Link>
+               <Link href={'/registration'}>
+                  <Button name='Registration' 
+                  href='#' 
+                  className={"text-sm-xx md:text-md leading-12 text-shadow text-secondary mobile-md:mb-20"}/>
+               </Link> 
+
+            </div>
 
             <Link href={'/login'}>
                <Button name='Log in' 
                href='#' 
                className="bg-secondary py-2 px-20 rounded-[5px] font-semibold text-primary text-sm-xx md:text-md leading-12 flex-shrink-0 flex-grow-0"/>
             </Link>
-         </div>
+
+            <div className="flex md:hidden">
+               <Image src={Img.navbar.isClosed} height="40"/>
+            </div> 
+         </div>   
 
       </div>
 
