@@ -1,5 +1,5 @@
 import React, { useRef, useState, useCallback, useEffect, FC } from "react";
-import Img,{Svg} from "../Img";
+import Img,{Svg} from "../Images";
 import Image from "next/image";
 // import { useDispatch, useSelector } from "react-redux";
 // import { RootState } from "../../data/redux/store";

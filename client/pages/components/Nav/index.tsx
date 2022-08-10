@@ -18,29 +18,37 @@ export const Nav:FC = () => {
 
             <ul className='lg:flex lg:space-x-30 pt-[7px]'>
 
-                <li><Link href='/'>
-                    <Button name='Home' 
-                    className="text-md leading-13 text-white mobile-laptop:p-3 block"
-                    href='#'/>
-                </Link></li>
+                <li>
+                    <Link href='/'>
+                        <Button name='Home' 
+                        className="text-md leading-13 text-white mobile-laptop:p-3 block"
+                        href='#'/>
+                    </Link>
+                </li>
 
-                <li><Link  href='#'>
-                    <Button name='News' 
-                    className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" 
-                    href='#'/>
-                </Link></li>
+                <li>
+                    <Link  href='#'>
+                        <Button name='News' 
+                        className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" 
+                        href='#'/>
+                    </Link>
+                </li>
 
-                <li><Link href='#'>
-                    <Button name='About' 
-                    className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" 
-                    href='#'/>
-                </Link></li>
+                <li>
+                    <Link href='#'>
+                        <Button name='About' 
+                        className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" 
+                        href='#'/>
+                    </Link>
+                </li>
 
-                <li><Link href='#'>
-                    <Button name='Contacts' 
-                    className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" 
-                    href='#'/>
-                </Link></li>
+                <li>
+                    <Link href='#'>
+                        <Button name='Contacts' 
+                        className="font-roboto text-md leading-13 text-white mobile-laptop:p-3 block" 
+                        href='#'/>
+                    </Link>
+                </li>
 
             </ul>
 

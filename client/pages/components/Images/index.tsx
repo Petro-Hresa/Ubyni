@@ -1,8 +1,9 @@
 import React from 'react';
 
-import ua from '../../../public/images/LangUa.png';
-import en from '../../../public/images/LangEn.png';
-
+import ua from '../../../public/images/static/LangUa.png';
+import en from '../../../public/images/static/LangEn.png';
+import isOpen from '../../../public/images/static/navBar.svg';
+import isClosed from '../../../public/images/static/navBarOpen.svg';
 type TSvg ={
     name: string;
 }
@@ -34,8 +35,9 @@ export const Svg = (props : TSvg) => {
 
 };
 
-export default {
+const Img = {
     lang:{ua, en},
+    navbar: {isClosed, isOpen}
   
     // news: {
     //     news1: require('../../../public/images/News1.jpg'),
@@ -57,7 +59,7 @@ export default {
 
 };
 
-
+export default Img;
  
 
 // export const gif = {
