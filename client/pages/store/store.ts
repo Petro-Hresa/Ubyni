@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 // import { reducer as formReducer } from 'redux-form';
 import Language from './slice/lenguage.s';
+
 // import Registration from './slice/Registration.s';
 // import UsersReducer from './slice/usersSlice';
 // import LoginReducer from './slice/loginSlice';
@@ -9,6 +10,7 @@ import Language from './slice/lenguage.s';
 export const store = configureStore({
    reducer:{
       lang: Language,
+      // navbar: Navbar
       // registr: Registration,
       // login: LoginReducer,
       // users: UsersReducer,

@@ -1,8 +1,8 @@
 import React, { useRef, useState, useCallback, useEffect, FC } from "react";
 import { connect } from "react-redux";
-import {TRootState} from '../../store'
+import {TRootState} from '../../store/store'
 
-import LangUi from "./Lang.ui";
+import LangUi from "./_Lang.ui";
 // import { useDispatch, useSelector } from "react-redux";
 // import { RootState } from "../../data/redux/store";
 // import { setLanguage } from '../../data/redux/slices/languageSlice';

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useCallback, useEffect, FC } from "react";
-import Img,{Svg} from "../Images";
+import Img,{Svg} from "../Images/_Images";
 import Image from "next/image";
 // import { useDispatch, useSelector } from "react-redux";
 // import { RootState } from "../../data/redux/store";
@@ -7,7 +7,7 @@ import Image from "next/image";
 // import { translation } from "../../data/locales/languages/languages";
 
 import img from '../../../public/images/LangEn.png'
-import { TLang } from ".";
+import { TLang } from "./_Lang";
 type TImgLang = {
    ua: any,
    en: any

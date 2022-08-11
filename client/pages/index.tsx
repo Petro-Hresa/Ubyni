@@ -6,7 +6,6 @@ import Image from 'next/image'
 const Home: NextPage = () => {
   return (
     <>
- 
       <section>
         <div className="constainer">
           <p className='text-secondary'>Hello tailwind</p>
