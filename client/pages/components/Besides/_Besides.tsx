@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { TRootState } from '../../store/store';
+import BesidesUi from './_Besides.ui';
+import { TBesides } from '../../store/slice/Besides.s';
+import { getStatus } from '../../store/slice/Besides.s';
 
-const Besides = () => {
-  return (
-   <div className="border-2 border-secondary rounded-[5px] p-1 flex items-center md:hidden">
-      <span className='bg-secondary w-0.5 h-0.5'></span>
-      <span className='bg-secondary w-0.5 h-0.5'></span>
-      <span className='bg-secondary w-0.5 h-0.5'></span>
-   </div>
-  )
+
+const Besides = (props:TBesides) => {
+  console.log(props.isOpen)
+  return (<BesidesUi {...props}/>)
 };
 
-export default Besides;
+const mapStateToProps = (state: TRootState)=>{
+
+  
+  return {
+    isOpen: state.besides.isOpen
+  }
+}
+
+
+export default connect(mapStateToProps,{getStatus})(Besides)

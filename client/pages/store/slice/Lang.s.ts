@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-const en = require('../locales/languages/en.json');
-const ua = require('../locales/languages/ua.json');
+const en = require('../locales/langs/en.json');
+const ua = require('../locales/langs/ua.json');
 
 // function translation 
 // export const translation = (keyword:string, lang:string) =>{

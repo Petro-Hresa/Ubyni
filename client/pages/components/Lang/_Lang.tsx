@@ -7,7 +7,7 @@ import LangUi from "./_Lang.ui";
 // import { RootState } from "../../data/redux/store";
 // import { setLanguage } from '../../data/redux/slices/languageSlice';
 // import { translation } from "../../data/locales/languages/languages";
-import { setLang } from "../../store/slice/lenguage.s";
+import { setLang } from "../../store/slice/Lang.s";
 // import {TLangState} from '../../../../../store/slice/lenguageSlice';
 
 // console.log(setLang);
