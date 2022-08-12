@@ -6,7 +6,7 @@ type propsTypes ={
     className: string,
     disabled: boolean,
     active: boolean,
-    href?: string,
+    btn?: string,
     children?: object,
     type?: "submit"
 
@@ -14,7 +14,7 @@ type propsTypes ={
 
 export const Button = ( {name, onClick, className, disabled, active, ...attr}:propsTypes) => {
 
-  const Tag = attr.href ? 'a' :'button';
+  const Tag = attr.btn ? 'button' :'a';
     
   return (
     <Tag
@@ -27,11 +27,12 @@ export const Button = ( {name, onClick, className, disabled, active, ...attr}:pr
 }
 
 Button.defaultProps ={
-    name: "default btn",
+    name: "default link",
     onClick: () => {} ,
-    className: '',
+    className: 'text-sm-xx md:text-md leading-12 text-shadow text-secondary mobile-md:mb-20',
     disabled: false,
     active: false,
+    
 }
 
 

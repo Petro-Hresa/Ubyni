@@ -1,7 +1,8 @@
-import React from 'react';
-import Navbar from '../Navbar';
+import React, { useState } from 'react';
+import Navbar from '../Navbar/_Navbar';
 
-export default () => {
+const Header = () => {
+
   return (
     <header className='bg-primary'>
       <div className="container">
@@ -10,3 +11,5 @@ export default () => {
     </header>
   )
 };
+
+export default Header;

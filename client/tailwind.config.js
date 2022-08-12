@@ -17,17 +17,17 @@ module.exports = {
       'sm': '640px',
       'md': '768px',
       'lg': '1024px',
-      'laptop': '1200px',
-      'desktop': '1300px',
-      'large': '1680px',
+      'lp': '1200px',
+      'xl': '1300px',
+      'xxl': '1680px',
       // => @media (min-width: ..px and max-width: ..px) { ... }
-      'md-desktop': { 'min': '768px', 'max': '1299px' },
-      'desktop-large': { 'min': '1300px', 'max': '1680px' },
+      'md-xl': { 'min': '768px', 'max': '1299px' },
+      'xl-xxl': { 'min': '1300px', 'max': '1680px' },
       // => @media (max-width: ..px) { ... }
-      'mobile-sm': { 'max': '639px' },
-      'mobile-md': { 'max': '767px' },
-      'mobile-laptop': { 'max': '1023px' },
-      'mobile-desktop': { 'max': '1299px' },
+      'max-sm': { 'max': '639px' },
+      'max-md': { 'max': '767px' },
+      'max-lg': { 'max': '1023px' },
+      'max-xl': { 'max': '1299px' },
     },
 
     colors:{
