@@ -25,7 +25,7 @@ type TImgLang = {
 
    return (
 
-         <div className=" flex items-center relative cursor-pointer" onClick={() => { setIsOpen(!isOpen) }}>
+         <div className=" flex items-center relative cursor-pointer max-md:px-30" onClick={() => { setIsOpen(!isOpen) }}>
 
             <div className="relative w-30 h-20">
                <Image src={imgLang[props.lang as keyof typeof imgLang]} alt={props.lang} width={30} height={20} className="absolute w-full h-full z-0 rounded-sm" />
