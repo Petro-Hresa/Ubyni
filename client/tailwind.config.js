@@ -214,6 +214,27 @@ module.exports = {
         '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
       },
 
+      animation: {
+        'open': 'open 1s linear 1',
+        'close': 'close 1s linear 1',
+      },
+
+      keyframes: {
+        open: {
+          'from': { height: '0' },
+          'to':{
+            height: '120px'
+          }
+        }, 
+
+        close: {
+          '0%': { height: '120px' },
+          '100%':{
+            height: '0'
+          }
+        }
+      }
+
     },
   },
   plugins: [],

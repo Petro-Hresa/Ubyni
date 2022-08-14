@@ -7,7 +7,7 @@ import { Button } from '../Button/_Button';
 import Besides from '../Besides/_Besides';
 import { useSelector } from 'react-redux';
 import { TRootState } from '../../store/store';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import tw from "tailwind-styled-components";
 
 
@@ -17,7 +17,10 @@ const Navbar = () => {
   const wrapRef = useRef<any>(null)
   const boxRef = useRef<any>(null)
 
+  const eventType = useSelector((state:TRootState)=> state.besides.eventType)
 
+  console.log("eventType", eventType);
+  
 
   useEffect(()=>{
     // let  styles = {
@@ -52,8 +55,8 @@ const Navbar = () => {
      
       <div className="max-md:relative">
         <Besides/>
-        <Wrap ref={wrapRef} open={open}> 
-            <div ref={boxRef}  className="flex max-md:flex-col-reverse md:space-x-30 max-md:py-30">
+        <Wrap open={open} eventType={eventType}> 
+            <div className="flex max-md:flex-col-reverse md:space-x-30 max-md:py-30">
               <Lang/>
               <Link href={'/registration'}>
                   <a className={"inline-block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-30 max-md:mb-20"}>Registration</a>
@@ -79,15 +82,28 @@ const Navbar = () => {
 export default Navbar;
 
 
+const OpenAnim = keyframes`
+  from{
+    max-md:h-0 
+    overflow-hidden
+  }
+
+  to{
+    max-md:h-[120px]
+    overflow-visible
+  }
+`;
 
 type TOpen = {
-  open: boolean
+  open: boolean,
+  eventType: string
 }
 
+
 const Wrap = tw.div`
-  ${(box:TOpen)=> (box.open ? "h-[120px]" : "h-0")}
-  overflow-hidden 
-  bg-primary 
+  h-0
+  overflow-hidden
+  bg-primary  
   max-md:absolute 
   top-[calc(100%)] 
   max-md:-left-[31px]  
@@ -96,6 +112,11 @@ const Wrap = tw.div`
   max-md: 
   min-w-[190px] 
   transition-all
+  ${(item:TOpen)=> 
+
+     ((item.open && item.eventType === "click") ? "animate-open h-[120px]" : "animate-close")
+
+}
 `;
 
 
