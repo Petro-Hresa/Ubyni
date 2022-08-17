@@ -14,34 +14,18 @@ import tw from "tailwind-styled-components";
 
 const Navbar = () => {
   const open = useSelector((state:TRootState)=> state.besides.isOpen)
+
+  const [boxHeight, setBoxHeight] = useState(0)
   const wrapRef = useRef<any>(null)
   const boxRef = useRef<any>(null)
 
-  const eventType = useSelector((state:TRootState)=> state.besides.eventType)
-
-  console.log("eventType", eventType);
-  
 
   useEffect(()=>{
-    // let  styles = {
-    //   height: besidesBox.current.offsetHeight
-    //  }
-    // heightOpen = ()=> {
-    //   if(open){
-    //     return besidesBox.current.offsetHeight
-    //   }
-    // }
-  //  besidesBox.current.offsetHeight;
-    // open ? besidesBox.current.style =  {height:besidesBox.current.offsetHeight} : ''
-    // besidesBox.current
+    const IsNumber = Number(boxRef.current.offsetHeight)
+    setBoxHeight(IsNumber)
+    
   },[])
 
-  const heandleClick = ()=> {
-    const wrapper = boxRef.current;
-    wrapper.classList.toggle('is-nav-open')
-  }
-  
-  // ${open ? 'max-md:h-auto' : 'max-md:h-0'}
 
   return (
     <div className="block-fixed w-full z-20 left-0 top-0 bg-primary flex justify-between items-center relative py-30 max-md:py-15">
@@ -54,15 +38,19 @@ const Navbar = () => {
         
      
       <div className="max-md:relative">
+  
         <Besides/>
-        <Wrap open={open} eventType={eventType}> 
-            <div className="flex max-md:flex-col-reverse md:space-x-30 max-md:py-30">
+        <Dropdown open={open} heightBox={boxHeight}> 
+            <Box open={open} ref={boxRef}>
               <Lang/>
               <Link href={'/registration'}>
                   <a className={"inline-block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-30 max-md:mb-20"}>Registration</a>
               </Link> 
-            </div>
-        </Wrap>
+              <Link href={'/registration'}>
+                  <a className={"inline-block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-30 max-md:mb-20"}>Registration</a>
+              </Link> 
+            </Box>
+        </Dropdown>
       </div>  
         
 
@@ -81,42 +69,22 @@ const Navbar = () => {
 
 export default Navbar;
 
-
-const OpenAnim = keyframes`
-  from{
-    max-md:h-0 
-    overflow-hidden
-  }
-
-  to{
-    max-md:h-[120px]
-    overflow-visible
-  }
-`;
-
 type TOpen = {
-  open: boolean,
-  eventType: string
+  heightBox : any,
+  open: boolean
 }
 
+const Dropdown = styled.div`
+  position:absolute;
+  top:100%;
+  background: black;
+  overflow:hidden;
+  height: 0px; 
+  transition: all .3s;
+  height: ${(props:TOpen)=> props.open && props.heightBox}px
 
-const Wrap = tw.div`
-  h-0
-  overflow-hidden
-  bg-primary  
-  max-md:absolute 
-  top-[calc(100%)] 
-  max-md:-left-[31px]  
-  max-md:rounded-bl-md 
-  max-md:-z-[5] 
-  max-md: 
-  min-w-[190px] 
-  transition-all
-  ${(item:TOpen)=> 
-
-     ((item.open && item.eventType === "click") ? "animate-open h-[120px]" : "animate-close")
-
-}
 `;
 
-
+const Box = tw.div`
+  flex max-md:flex-col-reverse md:space-x-30 max-md:py-30 transition-all
+`;

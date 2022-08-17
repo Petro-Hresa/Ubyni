@@ -7,17 +7,14 @@ import { getStatus, getEvent } from '../../store/slice/Besides.s';
 
 
 const Besides = (props:TBesides) => {
-
   return (<BesidesUi {...props}/>)
 };
 
 const mapStateToProps = (state: TRootState)=>{
-
-  
   return {
     isOpen: state.besides.isOpen
   }
 }
 
 
-export default connect(mapStateToProps,{getStatus, getEvent})(Besides)
+export default connect(mapStateToProps,{getStatus})(Besides)
