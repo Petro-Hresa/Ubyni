@@ -4,15 +4,14 @@ import { createSlice } from "@reduxjs/toolkit";
 export type TBesides = {
    isOpen: boolean,
    getStatus: (isOpen:boolean)=>void,
-   eventType: string,
-   getEvent: (event:string)=>void
+   // getEvent: (event:object)=>void
 };
 
 const Besides = createSlice({
    name: 'besides',
    initialState: { 
       isOpen: false,
-      eventType: '' 
+
    
    }as TBesides,
    reducers:{
