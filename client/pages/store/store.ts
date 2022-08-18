@@ -11,7 +11,7 @@ import Language from './slice/Lang.s';
 // import LoginReducer from './slice/loginSlice';
 
 
-export const store = configureStore({
+ const store = configureStore({
    reducer:{
       lang: Language,
       besides: Besides
@@ -26,3 +26,4 @@ export const store = configureStore({
 
 export type TRootState = ReturnType<typeof store.getState>;
 export type TAppDispatch = typeof store.dispatch;
+export default store;

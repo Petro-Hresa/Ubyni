@@ -1,5 +1,5 @@
 import React, { useRef, useState, useCallback, useEffect, FC } from "react";
-import Img,{Svg} from "../Images/_Images";
+import Svg from "../Images/_Images";
 import Image from "next/image";
 // import { useDispatch, useSelector } from "react-redux";
 // import { RootState } from "../../data/redux/store";
@@ -19,10 +19,10 @@ type TImgLang = {
    const [isOpen, setIsOpen] = useState(false)
 
    let imgLang: TImgLang = {
-      ua: Img.lang.ua,
-      en: Img.lang.en
+      ua: '../../../public/images/static/LangUa.png',
+      en: '../../../public/images/static/LangEn.png'
    }
-
+   // en: Img.lang.en
    return (
 
          <div className=" flex items-center relative cursor-pointer max-md:px-30" onClick={() => { setIsOpen(!isOpen) }}>
