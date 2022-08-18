@@ -12,7 +12,7 @@ type propsTypes ={
 
 }
 
-export const Button = ( {name, onClick, className, disabled, active, ...attr}:propsTypes) => {
+ const Button = ( {name, onClick, className, disabled, active, ...attr}:propsTypes) => {
 
   const Tag = attr.btn ? 'button' :'a';
     
@@ -34,5 +34,5 @@ Button.defaultProps ={
     active: false,
     
 }
-
+export default Button;
 

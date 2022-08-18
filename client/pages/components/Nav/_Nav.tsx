@@ -1,6 +1,6 @@
-import Link from 'next/link';
+// import { Link } from './routes';
 import React, {FC, useState} from 'react';
-import { Button } from '../Button/_Button';
+// import { Button } from '../Button/_Button';
 // import { NavLink, Link } from 'react-router-dom';
 // useState
 
@@ -9,7 +9,7 @@ import { Button } from '../Button/_Button';
 //     className: any
 // }
 
-export const Nav:FC = () => {
+const Nav:FC = () => {
 
     const [manuTrigger, setManuTrigger] = useState(false)
 
@@ -23,27 +23,27 @@ export const Nav:FC = () => {
             <ul className='lg:flex lg:space-x-30 pt-[7px]'>
 
                 <li>
-                    <Link href='/'>
+                    {/* <Link href='/'>
                         <a className="text-md leading-13 text-white mobile-laptop:p-3 block">Home</a>
-                    </Link>
+                    </Link> */}
                 </li>
 
                 <li>
-                    <Link  href='#'>
+                    {/* <Link  href='#'>
                         <a className="text-md leading-13 text-white mobile-laptop:p-3 block">News</a>
-                    </Link>
+                    </Link> */}
                 </li>
 
                 <li>
-                    <Link href='#'>
+                    {/* <Link href='#'>
                         <a className="text-md leading-13 text-white mobile-laptop:p-3 block">About</a>
-                    </Link>
+                    </Link> */}
                 </li>
 
                 <li>
-                    <Link href='#'>
+                    {/* <Link href='#'>
                         <a className="text-md leading-13 text-white mobile-laptop:p-3 block">Contacts</a>
-                    </Link>
+                    </Link> */}
                 </li>
 
             </ul>
@@ -53,3 +53,4 @@ export const Nav:FC = () => {
     );
 }
 
+export default Nav;

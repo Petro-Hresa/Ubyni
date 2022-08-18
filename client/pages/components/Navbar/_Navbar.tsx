@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Burger from '../Burger/_Burger';
-import { Nav } from '../Nav/_Nav';
+import Nav from '../Nav/_Nav';
 import Lang from '../Lang/_Lang'
-import Link from 'next/link';
-import { Button } from '../Button/_Button';
+// import Link from 'next/link';
+// import { Button } from '../Button/_Button';
 import Besides from '../Besides/_Besides';
 import { useSelector } from 'react-redux';
 import { TRootState } from '../../store/store';
@@ -43,20 +43,20 @@ const Navbar = () => {
         <Dropdown open={open} heightBox={boxHeight}> 
             <Box open={open} ref={boxRef}>
               <Lang/>
-              <Link href={'/registration'}>
+              {/* <Link href={'/registration'}>
                   <a className={"inline-block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-30 max-md:mb-20"}>Registration</a>
               </Link> 
               <Link href={'/registration'}>
                   <a className={"inline-block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-30 max-md:mb-20"}>Registration</a>
-              </Link> 
+              </Link>  */}
             </Box>
         </Dropdown>
       </div>  
         
 
-      <Link href={'/login'}>
+      {/* <Link href={'/login'}>
         <a  className="bg-secondary py-2 px-20 rounded-[5px] font-semibold text-primary text-sm-xx md:text-md leading-12 flex-shrink-0 flex-grow-0">Log in</a>
-      </Link>
+      </Link> */}
 
      
       </div>
