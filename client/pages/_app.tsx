@@ -3,9 +3,9 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Provider } from 'react-redux'
 
-import  Header  from './components/Header/_Header'
-import store  from './store/store'
-import '../styles/index.scss'
+import  Header  from './components/Header/_header'
+import store  from '../store/store'
+import '../styles/index.css'
 
 
 function App({ Component, pageProps }: AppProps) {
@@ -29,5 +29,5 @@ function App({ Component, pageProps }: AppProps) {
 
   </>
 }
-App.displayName = "App";
+// App.displayName = "App";
 export default App

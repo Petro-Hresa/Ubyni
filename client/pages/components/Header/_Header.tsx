@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from '../Navbar/_Navbar';
+import Navbar from '../Navbar/_navbar';
 
 const Header = () => {
 

@@ -1,15 +1,3 @@
 {
-  "extends": "next",
-  "rules": {
-    "react/display-name": 0
-  },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "plugins": [
-    "react"
-  ]
+  "extends": "next/core-web-vitals"
 }
