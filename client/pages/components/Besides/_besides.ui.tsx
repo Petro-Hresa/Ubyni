@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TBesides } from '../../../store/slice/BesidesS';
+import { TBesides } from '../../../store/slice/Besides.s';
 
 
 const BesidesUi = (props:TBesides) => {

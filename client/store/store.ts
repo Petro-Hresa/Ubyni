@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import Besides from './slice/BesidesS';
+import Besides from './slice/Besides.s';
 
 // import { reducer as formReducer } from 'redux-form';
 // import Language from './slice/LangS';
