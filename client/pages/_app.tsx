@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Provider } from 'react-redux'
 
-import  Header  from './components/Header/_header'
+import  Header  from './components/Header/_header.ui'
 import store  from '../store/store'
 import '../styles/index.css'
 
