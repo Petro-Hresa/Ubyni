@@ -2,8 +2,7 @@
 
 import ua from '../../../public/images/static/LangUa.png';
 import en from '../../../public/images/static/LangEn.png';
-import isOpen from '../../../public/images/static/navBar.svg';
-import isClosed from '../../../public/images/static/navBarOpen.svg';
+
 type TSvg ={
     name: string;
 }
@@ -39,7 +38,7 @@ export default Svg;
 
 export const Img = {
     lang:{ua, en},
-    navbar: {isClosed, isOpen}
+
   
     // news: {
     //     news1: require('../../../public/images/News1.jpg'),
