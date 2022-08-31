@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import Besides from './slice/Besides.s';
-
+import Besides from './slice/_besides.s';
+import Language from './slice/_lang.s';
 // import { reducer as formReducer } from 'redux-form';
-// import Language from './slice/LangS';
+
 
 
 
@@ -13,7 +13,7 @@ import Besides from './slice/Besides.s';
 
  const store = configureStore({
    reducer:{
-      // lang: Language,
+      lang: Language,
       besides: Besides
       // navbar: Navbar
       // registr: Registration,

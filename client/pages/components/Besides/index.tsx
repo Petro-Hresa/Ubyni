@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { TRootState } from '../../../store/store';
 import BesidesUi from './_besides.ui';
-import { getStatus, getEvent , TBesides} from '../../../store/slice/Besides.s';
+import { getStatus, getEvent , TBesides} from '../../../store/slice/_besides.s';
 
 
 const Besides = (props:TBesides) => {
