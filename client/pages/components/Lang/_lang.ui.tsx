@@ -11,17 +11,17 @@ const LangUi = (props: TLang) => {
   const imgLang = {ua, en}
 
   return (
-    <div className=" flex items-center relative cursor-pointer max-md:px-30" onClick={() => { setIsOpen(!isOpen) }}>
+    <div className="relative cursor-pointer max-md:px-30"  onClick={() => { setIsOpen(!isOpen) }}>
+      <div className=" flex items-center">
+        <div className="relative w-30 h-20">
+          <Image src={imgLang[props.lang as keyof typeof imgLang]} alt='ua' width={30} height={20} className="absolute w-full h-full z-0 rounded-sm" />
+        </div>
 
-      <div className="relative w-30 h-20">
-        <Image src={imgLang[props.lang as keyof typeof imgLang]} alt='ua' width={30} height={20} className="absolute w-full h-full z-0 rounded-sm" />
+        <span className={`stroke-white ml-10 ${isOpen && "rotate-90"}`}> 
+          <Svg name="arrow" />
+        </span>
       </div>
-
-      <span className={`stroke-white ml-10 ${isOpen && "rotate-90"}`}> 
-        <Svg name="arrow" />
-      </span>
-
-      {isOpen && <ul className="absolute w-30 min-w-[50px] bg-white top-[calc(100%+10px)] drop-shadow-md rounded-sm z-10">
+      {isOpen && <ul className="md:absolute w-30 min-w-[50px] bg-white top-[calc(100%+10px)] drop-shadow-md rounded-sm z-10">
 
         {Object.entries(imgLang).map((item, key) => (
           <li key={key} 
