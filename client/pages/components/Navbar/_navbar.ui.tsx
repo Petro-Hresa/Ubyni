@@ -2,30 +2,30 @@ import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { TRootState } from '../../../store/store';
-import { translation} from '../../../store/slice/_lang.s';
+import { translation } from '../../../store/slice/_lang.s';
 
 //components
-import Button from '../Button/_button.ui';
 import Burger from '../Burger/_burger.ui';
 import Nav from '../Nav/_nav.ui';
 import Lang from '../Lang/_lang.se';
 
 
 
- 
+
 const Navbar = () => {
 
-  const {lang} = useSelector((state: TRootState) => state.lang)
-  const [DropdownIsOpen, setBesidesIsOpen] = useState(false)
-  const [DropdownHeight, setBesidesBodyHeight] = useState(0)
+  const { lang } = useSelector((state: TRootState) => state.lang)
+  const [DropdownIsOpen, setDropdownIsOpen] = useState<boolean>(false)
+  const [DropdownHeight, setDropdownHeight] = useState<number>(0)
   const DropdownInnerRef = useRef<any>(null)
-  const lines = [1,2,3]
+  const BesidesRef = useRef<any>(null)
+  const lines = [1, 2, 3]
 
   useEffect(() => {
 
     function forceUpdate() {
       const IsNumber = Number(DropdownInnerRef.current.offsetHeight)
-      setBesidesBodyHeight(IsNumber)
+      setDropdownHeight(IsNumber)
     }
     forceUpdate()
 
@@ -38,9 +38,10 @@ const Navbar = () => {
 
     });
 
-    document.addEventListener('click',(e) => {
-      if(!DropdownInnerRef.current.contains(e.target)){
-          // setBesidesIsOpen(false)
+    document.addEventListener('mousedown', (e) => {
+   
+      if (!DropdownInnerRef.current.contains(e.target) && !BesidesRef.current.contains(e.target)) {
+          setDropdownIsOpen(false)
       }
     })
 
@@ -52,33 +53,27 @@ const Navbar = () => {
         <Burger />
         <Nav />
       </div>
-      
-      <div className="">{}</div>
+
 
       <div className="flex space-x-30 items-center">
+        <Lang />
         <div className="max-md:relative">
-              <div 
-                className="border-2 h-6 border-secondary rounded-[5px] p-1 md:hidden" 
-                onClick={(e)=> setBesidesIsOpen((isOpen)=> !isOpen)}>
-                {lines.map((x , i)=> <div key={i} className='bg-secondary w-0.5 h-0.5'></div>)}
-            </div>
-          {/* <Besides /> */}
-          <Dropdown isOpen={DropdownIsOpen} childHeight={DropdownHeight} className="max-md:absolute max-md:top-[calc(100%+15px)] max-md:right-0 bg-primary max-md:h-0 rounded-b-md max-md:overflow-hidden">
-            <div ref={DropdownInnerRef} className="flex max-md:flex-col-reverse md:space-x-30 max-md:py-30 transition-all">
-              <Lang/>
-              {/* <Button name="Registration" link='link' className="inline-block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-30 max-md:mb-20"/> */}
-               {/* name={} link='link' /> */}
-                <a href="#" className="inline-block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-30 max-md:mb-20">{translation("registr" , lang)}</a>
+          {/* Besides */}
+          <div
+            ref={BesidesRef}
+            className="border-2 h-6 border-secondary rounded-[5px] p-1 md:hidden"
+            onClick={() => setDropdownIsOpen(isOpen => !isOpen)}>
+            {lines.map((x, i) => <div key={i} className='bg-secondary w-0.5 h-0.5'></div>)}
+          </div>
+
+          <Dropdown isOpen={DropdownIsOpen} childHeight={DropdownHeight} className="max-md:absolute max-md:top-[calc(100%+15px)] max-md:right-0 bg-primary rounded-b-md max-md:overflow-hidden max-md:h-0">
+            <div ref={DropdownInnerRef} className=" md:flex mx-auto md:space-x-30 max-md:py-15 transition-all shadow-2xl text-center px-15">
+              <a href="#" className="block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-20 max-md:mb-20 py-2">{translation("registr", lang)}</a>
+              <a className="bg-secondary block text-center py-2 px-20 md:rounded-[5px] font-semibold text-primary text-sm-xx md:text-md leading-12 flex-shrink-0 flex-grow-0 rounded-b-md">Log in</a>
+
             </div>
           </Dropdown>
         </div>
-
-
-        {/* <Link href={'/login'}>
-        <a  className="bg-secondary py-2 px-20 rounded-[5px] font-semibold text-primary text-sm-xx md:text-md leading-12 flex-shrink-0 flex-grow-0">Log in</a>
-      </Link> */}
-
-
       </div>
     </div>
   )
@@ -93,8 +88,8 @@ type TOpen = {
 
 const Dropdown = styled.div`
   @media (max-width: 768px) {
-    height: 0px; 
+    min-height: 0;
+    min-height: ${(props: TOpen) => props.isOpen && props.childHeight}px;
     transition: all .3s;
-    height: ${(props: TOpen) => props.isOpen && props.childHeight}px;
   }
 `;

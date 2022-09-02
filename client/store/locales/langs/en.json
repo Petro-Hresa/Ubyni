@@ -1,6 +1,7 @@
 {
-
-        "villegName": "Ubyni",
-        "registr" : "Registration"
+        "registr" : "Registration",
+        "login": "Log in",
+        "villegName": "Ubyni"
+       
 
 }
