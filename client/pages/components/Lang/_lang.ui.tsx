@@ -20,7 +20,6 @@ const LangUi = (props: TLang) => {
       }
     })
 
-
   })
 
   return (
