@@ -24,9 +24,9 @@ const LangUi = (props: TLang) => {
 
   return (
     <div ref={langRef} className="relative cursor-pointer" onClick={() => { setIsOpen(!isOpen) }}>
-      <div className=" flex items-center">
+      <div className=" flex items-center md-lg:py-30 max-md:py-15">
         <div className="relative w-30 h-20">
-          <Image src={imgLang[props.lang as keyof typeof imgLang]} alt='ua' width={30} height={20} className="absolute w-full h-full z-0 rounded-sm" />
+          <Image src={imgLang[props.lang as keyof typeof imgLang]} alt={props.lang} width={30} height={20} className="absolute w-full h-full z-0 rounded-sm" />
         </div>
 
         <span className={`stroke-white ml-10 ${isOpen && "rotate-90"}`}>
