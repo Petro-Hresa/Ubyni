@@ -45,25 +45,26 @@ const Navbar = () => {
   }, [])
 
   return (
-    <div className="block-fixed w-full z-20 left-0 top-0 bg-primary flex justify-between items-center relative">
+    <div className="block-fixed w-full z-50 left-0 bottom-0 bg-primary flex justify-between items-center relative">
 
       <Menu />
 
-      <div className="flex space-x-30 items-center py-30 max-md:py-15">
+      <div className="flex space-x-30 items-center">
         <Lang />
-        <div className="max-md:relative">
+
+        <div className="max-md:relative max-md:p-15">
           {/* Besides */}
           <div
             ref={BesidesRef}
-            className="border-2 h-6 border-secondary rounded-[5px] p-1 md:hidden"
-            onClick={() => setDropdownIO(isOpen => !isOpen)}>
-            {lines.map((x, i) => <div key={i} className='bg-secondary w-0.5 h-0.5'></div>)}
+            onClick={() => setDropdownIO(isOpen => !isOpen)}
+            className="border-2 h-6 border-secondary rounded-[5px] p-1 md:hidden ">
+            <div>{lines.map((x, i) => <div key={i} className='bg-secondary w-0.5 h-0.5'></div>)}</div>
           </div>
 
-          <Dropdown isOpen={DropdownIO} childHeight={DropdownHeight} className="max-md:absolute max-md:top-[calc(100%+15px)] max-md:right-0 bg-primary rounded-b-md max-md:overflow-hidden max-md:h-0">
-            <div ref={DropdownInnerRef} className=" md:flex mx-auto md:space-x-30 max-md:py-15 transition-all shadow-2xl text-center px-15">
-              <div className=""><a href="#" className="block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-20 max-md:mb-20 py-2">{translation("registr", lang)}</a></div>
-              <div className=""><a className="bg-secondary block text-center py-2 px-20 md:rounded-[5px] font-semibold text-primary text-sm-xx md:text-md leading-12 flex-shrink-0 flex-grow-0 rounded-md">Log in</a></div>
+          <Dropdown isOpen={DropdownIO} boxHeight={DropdownHeight} className="max-md:absolute max-md:top-full max-md:right-30 bg-primary rounded-b-md max-md:overflow-hidden max-md:h-0">
+            <div ref={DropdownInnerRef} className=" md:flex items-center md:space-x-30 shadow-2xl text-center max-md:p-15 md:mr-30">
+              <div><a href="#" className="block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-20 max-md:mb-15 py-30 max-md:py-15">{translation("registr", lang)}</a></div>
+              <div><a className="bg-secondary block text-center py-2 px-20 md:rounded-[5px] font-semibold text-primary text-sm-xx md:text-md leading-12 flex-shrink-0 flex-grow-0 rounded-md">Log in</a></div>
             </div>
           </Dropdown>
         </div>
@@ -75,14 +76,14 @@ const Navbar = () => {
 export default Navbar;
 
 type TOpen = {
-  childHeight: any,
+  boxHeight: any,
   isOpen: boolean,
 }
 
 const Dropdown = styled.div`
   @media (max-width: 768px) {
     min-height: 0;
-    min-height: ${(props: TOpen) => props.isOpen && props.childHeight}px;
+    min-height: ${(props: TOpen) => props.isOpen && props.boxHeight}px;
     transition: all .3s;
   }
 `;
