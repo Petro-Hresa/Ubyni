@@ -1,6 +1,9 @@
 // import Navlink from '../Navlink/_navlink';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux';
+import { TRootState } from '../../../store/store';
+import { translation } from '../../../store/slice/_lang.s';
 import styled, { keyframes, css } from 'styled-components'
 
 // Navlink
@@ -31,24 +34,32 @@ function Navlink({ children, href }: TNavlink) {
 
 // Menu
 const Menu: FC = () => {
+  const { lang } = useSelector((state: TRootState) => state.lang)
   const [menuTrigger, setMenuTrigger] = useState<boolean>(false)
   const [sidebarWidth, setSidebarWidth] = useState<number>(0)
+  const burgerRef = useRef<any>(null)
   const sidebarRef = useRef<any>(null)
   const links = [
-    { name: 'Home', href: '/' },
-    { name: 'News', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Contacts', href: '#' }
+    { name: translation("home", lang), href: '/' },
+    { name: translation("news", lang), href: '#' },
+    { name: translation("about", lang), href: '#' },
+    { name: translation("contacts", lang), href: '#' }
   ]
 
   useEffect(()=>{
     setSidebarWidth(Number(sidebarRef.current.offsetWidth))
     console.log(sidebarRef.current.offsetWidth);
+    document.addEventListener('mousedown', (e) => {
+
+      if (!sidebarRef.current.contains(e.target) && !burgerRef.current.contains(e.target)) {
+        setMenuTrigger(false)
+      }
+    })
   })
 
   return (
-    <div className=''>
-      <div className="space-y-10 md:cursor-pointer lg:hidden max-md:p-15 p-30" onClick={(e) => { setMenuTrigger(!menuTrigger) }} >
+    <div>
+      <div ref={burgerRef} className="space-y-10 md:cursor-pointer lg:hidden max-md:p-15 p-30" onClick={(e) => { setMenuTrigger(!menuTrigger) }} >
         <div className={`h-2 bg-white transition-all ${menuTrigger ? 'w-30 ' : 'w-20 '}`}></div>
         <div className='w-25 h-2 bg-white'></div>
         <div className={`h-2 bg-white transition-all ${menuTrigger ? 'w-20' : 'w-30 '}`}></div>
