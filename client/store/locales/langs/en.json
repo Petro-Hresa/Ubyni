@@ -1,7 +1,9 @@
 {
+        "home": "Home",
+        "news": "News",
+        "about": "About",
+        "contacts": "Contacts",
         "registr" : "Registration",
         "login": "Log in",
         "villegName": "Ubyni"
-       
-
 }

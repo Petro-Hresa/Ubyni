@@ -12,8 +12,7 @@ import Lang from '../Lang/_lang.se';
 const Navbar = () => {
 
   const { lang } = useSelector((state: TRootState) => state.lang)
-  // ...IO - Is Open
-  const [DropdownIO, setDropdownIO] = useState<boolean>(false)
+  const [DropdownIsOpen, setDropdownIsOpen] = useState<boolean>(false)
   const [DropdownHeight, setDropdownHeight] = useState<number>(0)
   const DropdownInnerRef = useRef<any>(null)
   const BesidesRef = useRef<any>(null)
@@ -38,7 +37,7 @@ const Navbar = () => {
     document.addEventListener('mousedown', (e) => {
 
       if (!DropdownInnerRef.current.contains(e.target) && !BesidesRef.current.contains(e.target)) {
-        setDropdownIO(false)
+        setDropdownIsOpen(false)
       }
     })
 
@@ -49,22 +48,24 @@ const Navbar = () => {
 
       <Menu />
 
-      <div className="flex space-x-30 items-center">
+      <div className="flex max-md:space-x-15 space-x-30 items-center">
         <Lang />
 
-        <div className="max-md:relative max-md:p-15">
+        <div className="">
           {/* Besides */}
-          <div
-            ref={BesidesRef}
-            onClick={() => setDropdownIO(isOpen => !isOpen)}
-            className="border-2 h-6 border-secondary rounded-[5px] p-1 md:hidden ">
-            <div>{lines.map((x, i) => <div key={i} className='bg-secondary w-0.5 h-0.5'></div>)}</div>
+          <div ref={BesidesRef}  onClick={() => setDropdownIsOpen(isOpen => !isOpen)} className="max-md:relative max-md:p-15">
+            <div
+              className="border-2 h-6 border-secondary rounded-[5px] p-1 md:hidden ">
+                <div className={`h-full max-md:flex flex-col max-md:items-center justify-start  ${DropdownIsOpen && ' relative !justify-between'}`}>{lines.map((x, i) => 
+                    <div key={i} className={` bg-secondary w-0.5 h-0.5 `}/>)}
+                  </div>
+            </div>
           </div>
 
-          <Dropdown isOpen={DropdownIO} boxHeight={DropdownHeight} className="max-md:absolute max-md:top-full max-md:right-30 bg-primary rounded-b-md max-md:overflow-hidden max-md:h-0">
+          <Dropdown isOpen={DropdownIsOpen} boxHeight={DropdownHeight} className="max-md:absolute max-md:top-full max-md:right-30 bg-primary rounded-b-md max-md:overflow-hidden max-md:h-0">
             <div ref={DropdownInnerRef} className=" md:flex items-center md:space-x-30 shadow-2xl text-center max-md:p-15 md:mr-30">
               <div><a href="#" className="block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-20 max-md:mb-15 py-30 max-md:py-15">{translation("registr", lang)}</a></div>
-              <div><a className="bg-secondary block text-center py-2 px-20 md:rounded-[5px] font-semibold text-primary text-sm-xx md:text-md leading-12 flex-shrink-0 flex-grow-0 rounded-md">Log in</a></div>
+              <div><a className="bg-secondary block text-center py-2 px-20 md:rounded-[5px] font-semibold text-primary text-sm-xx md:text-md leading-12 flex-shrink-0 flex-grow-0 rounded-md">{translation("login", lang)}</a></div>
             </div>
           </Dropdown>
         </div>
