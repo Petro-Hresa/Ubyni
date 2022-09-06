@@ -33,7 +33,7 @@ function Navlink({ children, href }: TNavlink) {
 };
 
 // Menu
-const Menu: FC = () => {
+const Menu: FC = React.memo(() => {
   const { lang } = useSelector((state: TRootState) => state.lang)
   const [menuTrigger, setMenuTrigger] = useState<boolean>(false)
   const [sidebarWidth, setSidebarWidth] = useState<number>(0)
@@ -47,15 +47,24 @@ const Menu: FC = () => {
   ]
 
   useEffect(()=>{
-    setSidebarWidth(Number(sidebarRef.current.offsetWidth))
-    console.log(sidebarRef.current.offsetWidth);
+    function forceUpdate() { setSidebarWidth(Number(sidebarRef.current.offsetWidth))}
+    forceUpdate()
+   
+    window.addEventListener('resize', () => {
+      let flag = false
+      if (window.innerWidth < 1023 && !flag) {
+        forceUpdate()
+        flag = true
+      }
+
+    });
     document.addEventListener('mousedown', (e) => {
 
       if (!sidebarRef.current.contains(e.target) && !burgerRef.current.contains(e.target)) {
         setMenuTrigger(false)
       }
     })
-  })
+  },[sidebarRef])
 
   return (
     <div>
@@ -72,7 +81,7 @@ const Menu: FC = () => {
       </Sidebar>
     </div>
   );
-};
+});
 
 
 
@@ -83,27 +92,11 @@ type TSidebar = {
   isOpen :boolean
 }
 
-// max-lg:w-[100%]  max-lg:h-[100vh
-// const SidebarAnim =(props:TSidebar) => keyframes`
-
-//   ${()=>
-//       props.isOpen && css`0%{ height: 100px; width: 100px;} 100% { height: 100px; width: 100px; opacity: 0.6; }`};
-
-
-
-// `;
-
-const SidebarAnim =(props:TSidebar) => keyframes`
-      0%{} 
-      100% { left: 0 }
-`;
-
 const Sidebar = styled.nav`
-@media (max-width: 1023px) {
-  width:0;
-  min-width: 0;
-  min-width: ${(props:TSidebar)=> props.isOpen && props.boxWidth}px;
-  transition: min-width .3s linear;
-}
-
+  @media (max-width: 1023px) {
+    width:0;
+    min-width: 0;
+    min-width: ${(props:TSidebar)=> props.isOpen && props.boxWidth}px;
+    transition: min-width .3s linear;
+  }
 `;

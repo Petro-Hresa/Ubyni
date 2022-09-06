@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { reducer as formReducer } from 'redux-form';
 import Language from './slice/_lang.s';
-import Burger from './slice/_burger.s';
-// import { reducer as formReducer } from 'redux-form';
+import Register from './slice/_register.s';
+
 
 
 
@@ -14,12 +15,12 @@ import Burger from './slice/_burger.s';
  const store = configureStore({
    reducer:{
       lang: Language,
-      burger: Burger,
+      register: Register,
       // navbar: Navbar
       // registr: Registration,
       // login: LoginReducer,
       // users: UsersReducer,
-      // form: formReducer
+      form: formReducer
    }
 });
 
