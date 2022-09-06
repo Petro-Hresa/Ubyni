@@ -1,9 +1,34 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { connect } from 'react-redux';
-import RegisterUi from './_register.ui';
+import { TRootState } from '../../../store/store';
+import { postUser } from '../../../store/slice/_register.s';
 
-const Register = (props:TRegisterUi) => {
-  return <RegisterUi {...props}/>
+
+//components
+import RegistrUi from './_register.ui';
+
+export type TRegister = {
+    postUser: (data:{})=> any,
+    user: any
+}
+ 
+
+const RegistrationContainer = (props:TRegister) => {
+
+  useEffect(()=>{
+   
+  })
+  
+  return (<RegistrUi {...props} />)
 }
 
-export default connect()(Register);
+const mapStateToProps =(state:TRootState)=> {
+
+   return{
+    user: state.register
+   }
+
+}
+
+export default connect(mapStateToProps, {postUser})(RegistrationContainer)
+
