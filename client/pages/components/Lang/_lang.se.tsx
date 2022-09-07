@@ -1,29 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { TLang, setLang, setLocalLang } from '../../../store/slice/_lang.s';
+import { TLang, setLang } from '../../../store/slice/_lang.s';
 import { TRootState } from '../../../store/store';
 import LangUi from './_lang.ui';
 
+type TlocalLang = {
+  setLocal?: (lang:string)=> object
+}
+
 // Lang Side Effects
-const Lang = (props:TLang) => {
+const Lang = (props:TLang & TlocalLang) => {
+
+  const [localLang , setLang] = useState('ua')
+
+
+  useEffect(()=>{
+    console.log("P",props.lang);
+    // setLocal(props.lang)
+    // if(setLocal(props.lang))
+  },[props.lang])
+  
+
   return (<LangUi {...props} />)
 }
 
 const mapStateToProps = (state:TRootState)=>{
 
-  useEffect(()=>{
-    const setLocalLanguage = (lang:string) => {
-      localStorage.setItem('language', lang)
-      return{
-         type: "language",
-         payload: lang
-      }
-   }
-  },[])
-
   return {
-    lang: state.lang.lang
+    lang: state.lang.lang,
   }
 }
 
-export default connect(mapStateToProps, {setLang, setLocalLang})(Lang);
+export default connect(mapStateToProps, {setLang})(Lang);
