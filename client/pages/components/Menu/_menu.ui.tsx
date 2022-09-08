@@ -84,7 +84,7 @@ const Menu: FC = React.memo(() => {
 });
 
 
-
+Menu.displayName = "Menu";
 export default Menu;
 
 type TSidebar = {

@@ -1,63 +1,56 @@
-import { createSlice } from "@reduxjs/toolkit"; 
+import { createSlice } from "@reduxjs/toolkit";
+import { initialize } from "redux-form";
 const en = require('../locales/langs/en.json');
 const ua = require('../locales/langs/ua.json');
 
 // function translation 
-export const translation = (keyword:string, lang:string) =>{
-   let languageData : {[keyword:string]:string} = {}
-   if( lang === 'en') languageData = en
-   else if(lang === 'ua')languageData = ua
+
+export type TLang = {
+   lang?: any,
+   setLang: (lang: string) => void,
+
+};
+
+
+export const translation = (keyword: string, lang: string) => {
+   let languageData: { [keyword: string]: string } = {}
+   if (lang === 'en') languageData = en
+   else if (lang === 'ua') languageData = ua
    return languageData[keyword]
 }
 
+const setToLocal = (lang: string) => {
+   localStorage.setItem('language', lang)
+   return {
+      type: "language",
+      payload: lang
+   }
+ }
 
+const getFromLocal = (key:string) => {
 
-// const getFromStorage = (key:string) => {
-//    if(typeof localStorage !== 'undefined'){
-//        return getFromStorage('language')
-//    }
-// }
-
-// const localLang =  localStorage.getItem('language');
-// console.log(localStorage.getItem('language'));
-
-export type TLang = {
-   lang: string,
-   setLang: (lang:string)=>void,
-   setLocalLang: (lang:string)=>void,
-};
-const getFromStorage = (key:string):any => {
-   if(typeof localStorage !== 'undefined'){
-       return getFromStorage('language')
+   if (typeof window !== 'undefined') {
+         return localStorage.getItem(key);
    }
 }
+
+const initialState = {
+   lang: getFromLocal('language') || 'ua'
+} as TLang
+
 const Lang = createSlice({
    name: 'lang',
-   initialState: { lang:'ua' }as TLang,
-   reducers:{
-      setLang:(state, {payload})=>{
-       
-         return{ 
-            ...state,
-            lang: payload
-         }
+   initialState,
+   reducers: {
+      setLang: (state, { payload }) => {
+         state.lang = payload
+         setToLocal(state.lang)
       },
-
-      setLocalLang: (state, {payload})=>{
-       
-
-         return {
-            ...state,
-            lang: getFromStorage(payload)
-         }
-      }
-
    }
 });
 
-
-export const {setLang, setLocalLang} = Lang.actions;
-export default Lang.reducer;
+export const {setLang} = Lang.actions;
+export default Lang.reducer;  
 
 
 

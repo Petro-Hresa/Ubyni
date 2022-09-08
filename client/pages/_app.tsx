@@ -4,9 +4,9 @@ import Head from 'next/head'
 import { Provider } from 'react-redux'
 
 import  Header  from './components/Header/_header.ui'
-import store  from '../store/store'
+import store , {persistor} from '../store/store'
 import '../styles/index.css'
-
+import {PersistGate} from 'redux-persist/integration/react';
 
 function App({ Component, pageProps }: AppProps) {
 
@@ -19,12 +19,14 @@ function App({ Component, pageProps }: AppProps) {
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <Provider store={store}>
-      {/* Header */}
-      <Header/>
-      {/* Body */}
-      <main>
-        <Component {...pageProps} />
-      </main>
+      <PersistGate persistor={persistor}>
+        {/* Header */}
+        <Header/>
+        {/* Body */}
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </PersistGate>
     </Provider>
 
   </>
