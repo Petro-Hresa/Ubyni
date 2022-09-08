@@ -1,27 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+// components
 import Svg from '../Images';
 import ua from '../../../public/images/static/LangUa.png';
 import en from '../../../public/images/static/LangEn.png';
 import { TLang } from '../../../store/slice/_lang.s';
+
+
 
 const LangUi = (props: TLang) => {
 
   const [isOpen, setIsOpen] = useState(false)
   const langListRef = useRef<any>(null)
   const langRef = useRef<any>(null)
-
   const imgLang = { ua, en }
 
   useEffect(() => {
-
+ 
     document.addEventListener('mousedown', (e) => {
       if (!langRef.current.contains(e.target)) {
         setIsOpen(false)
       }
     })
 
-  })
+  },[])
 
   return (
     <div ref={langRef} className="relative cursor-pointer" onClick={() => { setIsOpen(!isOpen) }}>
@@ -40,7 +42,7 @@ const LangUi = (props: TLang) => {
        {Object.entries(imgLang).map((item, key) => (
          props.lang != item[0] && <li key={key}
             className="text-center font-semibold text-primary bg-white transition-all p-2 rounded-sm hover:bg-[#f3f3f3]"
-            onClick={() => props.setLang(String(item[0]))}
+            onClick={() => {props.setLang(item[0])}}
             >
             {item[0]}
           </li>

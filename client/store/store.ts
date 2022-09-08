@@ -1,28 +1,45 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { reducer as formReducer } from 'redux-form';
+import { 
+   persistStore, 
+   persistReducer,  
+   FLUSH,
+   REHYDRATE,
+   PAUSE,
+   PERSIST,
+   PURGE,
+   REGISTER, } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+// reducers
 import Language from './slice/_lang.s';
 import Register from './slice/_register.s';
 
+const rootReducer = combineReducers({
+   lang: Language,
+   register: Register,
+   form: formReducer
+})
 
 
+const persistConfig = {
+   key: 'root',
+   storage,
+ }
 
 
-// import Registration from './slice/Registration.s';
-// import UsersReducer from './slice/usersSlice';
-// import LoginReducer from './slice/loginSlice';
-
+ const persistedRducer = persistReducer(persistConfig , rootReducer)
 
  const store = configureStore({
-   reducer:{
-      lang: Language,
-      register: Register,
-      // navbar: Navbar
-      // registr: Registration,
-      // login: LoginReducer,
-      // users: UsersReducer,
-      form: formReducer
-   }
+   reducer: persistedRducer,
+   middleware: (getDefaultMiddleware) =>
+   getDefaultMiddleware({
+     serializableCheck: {
+       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+     },
+   }),
 });
+
+export const persistor = persistStore(store)
 
 
 export type TRootState = ReturnType<typeof store.getState>;

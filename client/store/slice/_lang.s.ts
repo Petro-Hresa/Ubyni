@@ -6,12 +6,10 @@ const ua = require('../locales/langs/ua.json');
 // function translation 
 
 export type TLang = {
-   lang: any,
+   lang?: any,
    setLang: (lang: string) => void,
-   setLocalLang: (lang: string) => void,
+
 };
-
-
 
 
 export const translation = (keyword: string, lang: string) => {
@@ -21,7 +19,7 @@ export const translation = (keyword: string, lang: string) => {
    return languageData[keyword]
 }
 
-const setLocal = (lang: string) => {
+const setToLocal = (lang: string) => {
    localStorage.setItem('language', lang)
    return {
       type: "language",
@@ -29,54 +27,30 @@ const setLocal = (lang: string) => {
    }
  }
 
+const getFromLocal = (key:string) => {
 
-// debugger
-// console.log(typeof getFromStorage('language'));
-
-
-// const actualLocalLang = getFromStorage('language')
- 
-
-
-// const getFromStorage = (key: string): any => {
-//    if (typeof localStorage !== 'undefined') {
-//       return getFromStorage('language')
-//    }
-// }
-
-const getFromStorage = (key:string) => {
    if (typeof window !== 'undefined') {
-      
-
-      return localStorage.getItem(key);
+         return localStorage.getItem(key);
    }
 }
-// console.log( getFromStorage('language'));
-
-
 
 const initialState = {
-    lang: 'ua'
-      
+   lang: getFromLocal('language') || 'ua'
 } as TLang
 
-
-
-// localLang ? localLang :
 const Lang = createSlice({
    name: 'lang',
    initialState,
    reducers: {
       setLang: (state, { payload }) => {
-
+         state.lang = payload
+         setToLocal(state.lang)
       },
-
    }
 });
 
-
-export const { setLang} = Lang.actions;
-export default Lang.reducer;
+export const {setLang} = Lang.actions;
+export default Lang.reducer;  
 
 
 
