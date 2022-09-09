@@ -8,6 +8,7 @@ import { translation } from '../../../store/slice/_lang.s';
 import Menu from '../Menu/_menu.ui';
 import Nav from '../Menu/_menu.ui';
 import Lang from '../Lang/_lang.se';
+import Register from '../Register/_register.se';
 
 const Navbar = () => {
 
@@ -17,6 +18,7 @@ const Navbar = () => {
   const DropdownInnerRef = useRef<any>(null)
   const BesidesRef = useRef<any>(null)
   const lines = [1, 2, 3]
+  const [registerIsOpen, setRegisterIsOpen] = useState<boolean>(false)
 
 
 
@@ -63,8 +65,11 @@ const Navbar = () => {
           </div>
 
           <Dropdown isOpen={DropdownIsOpen} boxHeight={DropdownHeight} className="max-md:absolute max-md:top-full max-md:right-30 bg-primary rounded-b-md max-md:overflow-hidden max-md:h-0">
-            <div ref={DropdownInnerRef} className=" md:flex items-center md:space-x-30 shadow-2xl text-center max-md:p-15 md:mr-30">
-              <div><a href="#" className="block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-20 max-md:mb-15 py-30 max-md:py-15">{translation("registr", lang)}</a></div>
+            <div ref={DropdownInnerRef} className=" md:flex items-center md:space-x-30 shadow-2xl text-center max-md:p-15">
+              <div>
+                <a href="#" onClick={()=>setRegisterIsOpen(!registerIsOpen)} className="block text-sm-xx md:text-md leading-12 text-shadow text-secondary max-md:px-20 max-md:mb-15 py-30 max-md:py-15">{translation("registr", lang)}</a>
+                {registerIsOpen && <div className="fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 "><Register/></div>}
+              </div>
               <div><a className="bg-secondary block text-center py-2 px-20 md:rounded-[5px] font-semibold text-primary text-sm-xx md:text-md leading-12 flex-shrink-0 flex-grow-0 rounded-md">{translation("login", lang)}</a></div>
             </div>
           </Dropdown>

@@ -13,7 +13,7 @@ export type TRegister = {
 }
  
 
-const RegistrationContainer = (props:TRegister) => {
+const Register = (props:TRegister) => {
 
   useEffect(()=>{
    
@@ -30,5 +30,5 @@ const mapStateToProps =(state:TRootState)=> {
 
 }
 
-export default connect(mapStateToProps, {postUser})(RegistrationContainer)
+export default connect(mapStateToProps, {postUser})(Register)
 
