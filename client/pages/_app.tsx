@@ -10,7 +10,6 @@ import {PersistGate} from 'redux-persist/integration/react';
 
 function App({ Component, pageProps }: AppProps) {
 
-  
   return <>
     <Head>
       <title>Ubyni</title>
@@ -33,3 +32,18 @@ function App({ Component, pageProps }: AppProps) {
 }
 // App.displayName = "App";
 export default App
+
+export function changeHeight (set:any , refHeight:number){
+  function forceUpdate() { set(refHeight) }
+    forceUpdate()
+
+    window.addEventListener('resize', () => {
+      let trigger = false
+      if (window.innerWidth < 768 && !trigger) {
+        forceUpdate()
+        trigger = true
+      }
+
+    });
+}
+  

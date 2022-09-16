@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 import { TRootState } from '../../../store/store';
 import { translation } from '../../../store/slice/_lang.s';
+import { changeHeight } from '../../_app';
 
 //components
 import Menu from '../Menu/_menu.ui';
@@ -22,18 +23,9 @@ const Navbar = () => {
 
   useEffect(() => {
 
-    function forceUpdate() { setDropdownHeight(Number(DropdownInnerRef.current.offsetHeight)) }
-    forceUpdate()
+    changeHeight(setDropdownHeight , Number(DropdownInnerRef.current.offsetHeight))
 
-    window.addEventListener('resize', () => {
-      let flag = false
-      if (window.innerWidth < 768 && !flag) {
-        forceUpdate()
-        flag = true
-      }
-
-    });
-
+    
     document.addEventListener('mousedown', (e) => {
 
       if (!DropdownInnerRef.current.contains(e.target) && !BesidesRef.current.contains(e.target)) {
