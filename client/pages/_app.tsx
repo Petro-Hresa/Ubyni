@@ -33,17 +33,11 @@ function App({ Component, pageProps }: AppProps) {
 // App.displayName = "App";
 export default App
 
-export function changeHeight (set:any , refHeight:number){
-  function forceUpdate() { set(refHeight) }
-    forceUpdate()
 
-    window.addEventListener('resize', () => {
-      let trigger = false
-      if (window.innerWidth < 768 && !trigger) {
-        forceUpdate()
-        trigger = true
-      }
-
-    });
-}
-  
+export const debounce = (fn: Function, ms = 300) => {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  return function (this: any, ...args: any[]) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => fn.apply(this, args), ms);
+  };
+};

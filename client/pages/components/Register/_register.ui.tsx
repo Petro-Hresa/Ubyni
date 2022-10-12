@@ -66,7 +66,7 @@ const RegisterUi = (props:TRegister) => {
   const onSubmit = (formData:TRegisterForm)=>{props.postUser(formData)}
 
   return (
-    <div className="container">  
+    <div className="border fixed top-[84px] left-0 h-[calc(100%-84px)] w-full flex justify-center items-center">  
       <RegisterReduxForm onSubmit={onSubmit}/>
     </div>
   )

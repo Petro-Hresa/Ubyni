@@ -1,14 +1,14 @@
 import { createSlice , createAsyncThunk } from "@reduxjs/toolkit";
-import { usersApi } from '../../pages/api/api';
+// import { usersApi } from '../../pages/api/api';
 // import { TRegistrationForm } from "../../components/Registration/Registration";
 
-import axios from "axios";
+// import axios from "axios";
 
 export const postUser = createAsyncThunk(
    'registr/postUser',
    async (userData, {rejectWithValue, dispatch, getState})=>{
       
-      await usersApi.setUserRegistration(userData)
+      // await usersApi.setUserRegistration(userData)
    }
 )
 

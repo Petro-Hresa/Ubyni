@@ -47,17 +47,19 @@ const Menu: FC = React.memo(() => {
   ]
 
   useEffect(()=>{
-    function forceUpdate() { setSidebarWidth(Number(sidebarRef.current.offsetWidth))}
-    forceUpdate()
+    // function forceUpdate() { setSidebarWidth(Number(sidebarRef.current.offsetWidth))}
+    // forceUpdate()
    
-    window.addEventListener('resize', () => {
-      let flag = false
-      if (window.innerWidth < 1023 && !flag) {
-        forceUpdate()
-        flag = true
-      }
+    // window.addEventListener('resize', () => {
+    //   let flag = false
+    //   if (window.innerWidth < 1023 && !flag) {
+    //     forceUpdate()
+    //     flag = true
+    //   }
 
-    });
+    // });
+  
+    
     document.addEventListener('mousedown', (e) => {
 
       if (!sidebarRef.current.contains(e.target) && !burgerRef.current.contains(e.target)) {
