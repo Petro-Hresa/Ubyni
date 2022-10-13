@@ -47,17 +47,19 @@ const Menu: FC = React.memo(() => {
   ]
 
   useEffect(()=>{
-    function forceUpdate() { setSidebarWidth(Number(sidebarRef.current.offsetWidth))}
-    forceUpdate()
+    // function forceUpdate() { setSidebarWidth(Number(sidebarRef.current.offsetWidth))}
+    // forceUpdate()
    
-    window.addEventListener('resize', () => {
-      let flag = false
-      if (window.innerWidth < 1023 && !flag) {
-        forceUpdate()
-        flag = true
-      }
+    // window.addEventListener('resize', () => {
+    //   let flag = false
+    //   if (window.innerWidth < 1023 && !flag) {
+    //     forceUpdate()
+    //     flag = true
+    //   }
 
-    });
+    // });
+  
+    
     document.addEventListener('mousedown', (e) => {
 
       if (!sidebarRef.current.contains(e.target) && !burgerRef.current.contains(e.target)) {
@@ -68,13 +70,13 @@ const Menu: FC = React.memo(() => {
 
   return (
     <div>
-      <div ref={burgerRef} className="space-y-10 md:cursor-pointer lg:hidden max-md:p-15 p-30" onClick={(e) => { setMenuTrigger(!menuTrigger) }} >
+      <div ref={burgerRef} className="space-y-10 md:cursor-pointer lg:hidden max-md:p-15 p-30 pl-0" onClick={(e) => { setMenuTrigger(!menuTrigger) }} >
         <div className={`h-2 bg-white transition-all ${menuTrigger ? 'w-30 ' : 'w-20 '}`}></div>
         <div className='w-25 h-2 bg-white'></div>
         <div className={`h-2 bg-white transition-all ${menuTrigger ? 'w-20' : 'w-30 '}`}></div>
       </div>
 
-      <Sidebar isOpen={menuTrigger} boxWidth={sidebarWidth} className={`flex h-[100%] max-lg:fixed max-lg:backdrop-blur-sm max-lg:bg-secondary/30 max-lg:top-0 max-lg:left-0 ease-linear z-[-10] max-lg:overflow-hidden lg:ml-30`}>
+      <Sidebar isOpen={menuTrigger} boxWidth={sidebarWidth} className={`flex h-[100%] max-lg:fixed max-lg:backdrop-blur-sm max-lg:bg-secondary/30 max-lg:top-0 max-lg:left-0 ease-linear z-[-10] max-lg:overflow-hidden`}>
         <ul ref={sidebarRef} className='lg:flex lg:space-x-30 max-lg:pt-[100px]'>
           {links.map((link, i) => <li key={i} className="max-lg:mb-10"><Navlink href={link.href}>{link.name}</Navlink></li>)}
         </ul>

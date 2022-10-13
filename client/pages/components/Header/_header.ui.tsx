@@ -5,7 +5,7 @@ const Header = () => {
 
   return (
     <header className='bg-primary'>
-      <div className="">
+      <div className="container max-md:p-0">
          <Navbar/>
       </div>
     </header>

@@ -21,31 +21,31 @@ const RegisterForm:FC<InjectedFormProps <TRegisterForm>> = (props)=>{
 
   
   return(
-      <form method='POST' action='/api/register' onSubmit={props.handleSubmit} className='p-20 text-primary font-semibold'>
+      <form method='POST' action='/api/register' onSubmit={props.handleSubmit} className='border p-20 text-primary font-semibold max-w-345'>
 
-      <label htmlFor="" className=''>
+      <label htmlFor="" className='text-left'>
         Full Name
-        <Field component={'input'} type="text" name='fullName' placeholder='Enter full name' className='block border-2 border-secondary py-2 px-30 rounded-[5px] mr-20 mb-4'/>
+        <Field component={'input'} type="text" name='fullName' placeholder='Enter full name' className='block border-2 border-secondary w-full py-2 px-30 rounded-[5px] mr-20 mb-4'/>
       </label>
 
       <label htmlFor="">
         Email
-        <Field component={'input'} type="email" name='email' placeholder='Enter last email' required className='block border-2 border-secondary py-2 px-30 rounded-[5px] mr-20 mb-4'/>
+        <Field component={'input'} type="email" name='email' placeholder='Enter last email' required className='block border-2 border-secondary w-full py-2 px-30 rounded-[5px] mr-20 mb-4'/>
       </label>
 
       <label htmlFor="">
         Login
-        <Field component={'input'} type="text" name='login' placeholder='Enter login' required  className='block border-2 border-secondary py-2 px-30 rounded-[5px] mr-20 mb-4'/>
+        <Field component={'input'} type="text" name='login' placeholder='Enter login' required  className='block border-2 border-secondary w-full py-2 px-30 rounded-[5px] mr-20 mb-4'/>
       </label>
 
       <label htmlFor="">
         Password
-        <Field component={'input'} type="password" name='password' placeholder='Enter password' required className='block border-2 border-secondary py-2 px-30 rounded-[5px] mr-20 mb-4' />
+        <Field component={'input'} type="password" name='password' placeholder='Enter password' required className='block border-2 border-secondary w-full py-2 px-30 rounded-[5px] mr-20 mb-4' />
       </label>
 
       <label htmlFor="">
         Confirm password
-        <Field component={'input'} type="password" name='confirmPassword' placeholder='Enter confirm password' required  className='block border-2 border-secondary py-2 px-30 rounded-[5px] mr-20 mb-4' />
+        <Field component={'input'} type="password" name='confirmPassword' placeholder='Enter confirm password' required  className='block border-2 border-secondary w-full py-2 px-30 rounded-[5px] mr-20 mb-4' />
       </label>
 
       <button type="submit" name='Enter' className='bg-primary text-white inline-block py-2 px-30 rounded-[5px]'/>
@@ -66,7 +66,11 @@ const RegisterUi = (props:TRegister) => {
   const onSubmit = (formData:TRegisterForm)=>{props.postUser(formData)}
 
   return (
-    <div className="container">  
+<<<<<<< HEAD
+    <div className="border fixed top-[84px] left-0 h-[calc(100%-84px)] w-full flex justify-center items-center">  
+=======
+    <div className=''>  
+>>>>>>> 871ed43879a48e3d175a66b1ec699e1d37612abd
       <RegisterReduxForm onSubmit={onSubmit}/>
     </div>
   )
